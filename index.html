@@ -1,43 +1,205 @@
-﻿<html>
+
+<!DOCTYPE html>
+<html > 
 <head>
-<title></title>
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-<script type="text/javascript" herf="js/jquery-2.2.3.min.js"></script>
-<style>
-*{padding:0;margin:0;font-family: Arial, Helvetica, sans-serif;font-size:12px;}
-ul{list-style-type:none}
-a{text-decoration:none;}
+    <title>Resume</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="favicon.ico">  
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <!-- Global CSS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">   
+    <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+	 body{font-family: 'Roboto', sans-serif;
+		color: #545E6C;
+		background: #f5f5f5;
+		font-size: 14px;
+		padding: 30px;
+		}
+	</style>
+</head> 
 
-h1{font-size:18px;color:#888;text-align:center;padding-top:30px;font-weight:bold;}
-.con{width:900;padding:50px;height:400px;}
-.ues{width:60%;float:right;margin-top:10px;background-color:#fff;margin-top:20px;margin-bottom:20px;}
-.menu{width:100%;line-height:90px;cursor:pointer;margin-bottom: 10px;}
- a{color:#fff;font-size:16px;font-weight: bold;padding:0 10px;display:block;background-color:#7ba9d0;}
- a:hover{background-color:#58a3e2;color:#000;text-decoration: none;}
- .menu:hover .go{background-color:#fff;color:#000;}
-.go{float: left;background: #fff; width: 40px;height: 40px;margin-right: 30px;margin-left: 5px;margin-top: 20px;border-radius: 50%;text-align: center;color: #d77500; font-size: 25px;line-height: 40px;}  
-.btn{position: absolute;right:180px;top:40px;}   
- .db{width: 200px;height:200;background: red;}  
+<body >
+    <div class="wrapper">
+        <div class="sidebar-wrapper">
+            <div class="profile-container">
+                <img class="profile img-thumbnail"  src="images/psb.jpg" alt=""  width="100" height="100";/>
+                <h1 class="name">dandanliang</h1>
+               <!-- <h3 class="tagline">前端工程师</h3>-->
+            </div><!--//profile-container-->
+            
+            <div class="contact-container container-block">
+                <ul class="list-unstyled contact-list">
+                    <li class="email"><i class="fa fa-envelope lr"></i><a href="mailto:lyh@tlzzu.com">lyh@tlzzu.com</a></li>
+                    <li class="phone"><i class="fa fa-phone lr"></i><span id="tell" style=""></span><a href="#" class="btn btn-info" role="button" onclick="showTel(this)">获取联系方式</a></li>
+                    <li class="github"><i class="fa fa-github lr"></i><a href="https://github.com/dandanliang/" target="_blank" id="pa">https://github.com/dandanliang/</a></li>
+                </ul>
+            </div><!--//contact-container-->
+            <div class="education-container container-block">
+                <h2 class="container-block-title">教育经历</h2>
+                <div class="item mr">
+                    <h4 class="degree">物流管理</h4>
+                    <h5 class="meta">北海职业学院</h5>
+                    <div class="time">2011 - 2014</div>
+                </div><!--//item-->
+            </div><!--//education-container-->
+            
+            <div class="interests-container container-block">
+                <h2 class="container-block-title">兴趣爱好</h2>
+                <ul class="list-unstyled interests-list mr">
+                    <li>打羽毛球</li>
+                    <li>旅游</li>
+                    <li>撸码</li>
+                </ul>
+            </div><!--//interests-->
 
-</style>
-</head>
-<body>
-    <div class="public">
-    
-        <div class="con">
-            <h1>我的作品</h1>
-            <ul class="ues">
-            <li class="menu"><div class="go">1</div><a href="site/BMW/index.html">BMW宝马</a><li>
-            <li class="menu"><div class="go">2</div><a href="site/IT/index.html">IT</a><li>
-            <li class="menu"><div class="go">3</div><a href="site/renren/index.html">renren人人</a><li>
-            <li class="menu"><div class="go">4</div><a href="site/banner/index.html">轮播图</a><li>
-            </ul>
-            <!--<div class="btn"><a herf="" id="btn_a" class="btn btn-primary btn-lg disabled" role="button" onclick="myfn()">关于我</a></div>-->
+            <div class="interests-container container-block">
+                <a  href="doc/梁艺红个人简历.doc" target="_blank"  class="btn btn-info" download="cv">下载简历</a>
+            </div>
+            
+        </div><!--//sidebar-wrapper-->
+        
+
+
+        <div class="main-wrapper">
+            
+            <section class="section summary-section">
+                <h2 class="section-title"><i class="fa fa-user"></i>个人资料</h2>
+                <div class="summary">
+                    <p>现居住于上海|专科</p>
+                    <p>2014年毕业，自学前端</p>
+                    <p>职业规划：前端工程师</p>
+                   
+                </div><!--//summary-->
+            </section><!--//section-->
+            
+            <section class="section experiences-section">
+                <h2 class="section-title"><i class="fa fa-briefcase"></i>培训经历</h2>
+                
+                <div class="item">
+                    <div class="meta">
+                        <div class="upper-row">
+                            <h3 class="job-title">幕课网</h3>
+                            <div class="time" style="position:absolute;right:302px;color:#97AAC3;">2015年7月-至今</div>
+                        </div><!--//upper-row-->
+                        <div class="company">培训：html css javaScript jQuery</div>
+                    </div><!--//meta-->
+                    <div class="details">
+                        <p>1.通过学习 html css ，使我从一个门外汉都能现实规整的静态页面</p>
+                        <p>2.通过学习 js jquery,能使实现很多炫酷效果 同时简化很多代码。</p> 
+                    </div><!--//details-->
+                </div><!--//item-->
+
+                <div class="item">
+                    <div class="meta">
+                        <div class="upper-row">
+                            <h3 class="job-title">自测项目：（自己测试）</h3>
+                            <div class="time"></div>
+                        </div><!--//upper-row-->
+                        <div class="company">华晨宝马首页、人人网等</div>
+                    </div><!--//meta-->
+                    <div class="details">
+                        <p>1.使用HTML+CSS布局实现页面布局效果。</p>
+                        <p>2.jQuery实现图片轮播功能、人机交互功能效果</p> 
+                    </div><!--//details-->
+                    
+                </div><!--//item-->
+                
+            </section><!--//section-->
+            
+            <section class="section projects-section">
+                <h2 class="section-title"><i class="fa fa-archive"></i>个人能力</h2>
+                <div class="intro">
+                    <p>list</p>
+                </div><!--//intro-->
+                <div class="item">
+                    <span class="project-title">
+                        <p>detail</p>
+                    </span>
+                    
+                </div><!--//item-->
+            </section><!--//section-->
+            
+            <section class="skills-section section">
+                <h2 class="section-title"><i class="fa fa-rocket"></i>Skills &amp; Proficiency</h2>
+                <div class="skillset">        
+                    
+                    <div class="item">
+                        <h3 class="level-title">Javascript &amp; jQuery</h3>
+                        <div class="level-bar">
+                            <div class="level-bar-inner" style="width:60%">
+                            </div>                                      
+                        </div><!--//level-bar-->                                 
+                    </div><!--//item-->
+                    
+                    <div class="item">
+                        <h3 class="level-title">Git &amp; Github</h3>
+                        <div class="level-bar">
+                            <div class="level-bar-inner" style="width:50%">
+                            </div>                                      
+                        </div><!--//level-bar-->                                 
+                    </div><!--//item-->
+                    
+                    <div class="item">
+                        <h3 class="level-title">HTML &amp; CSS</h3>
+                        <div class="level-bar">
+                            <div class="level-bar-inner" style="width:60%">
+                            </div>                                      
+                        </div><!--//level-bar-->                                 
+                    </div><!--//item-->
+                    
+                    <div class="item">
+                        <h3 class="level-title">Photoshop</h3>
+                        <div class="level-bar">
+                            <div class="level-bar-inner" style="width:40%">
+                            </div>                                      
+                        </div><!--//level-bar-->                                 
+                    </div><!--//item-->
+                    <div class="item">
+                        <h3 class="level-title">AI</h3>
+                        <div class="level-bar">
+                            <div class="level-bar-inner" style="width:30%">
+                            </div>                                      
+                        </div><!--//level-bar-->                                 
+                    </div><!--//item--> 
+                </div>  
+            </section><!--//skills-section-->
+            
         </div>
-          
-
-   </div>
-
-
+    </div>
+ 
+    <footer class="footer">
+        <div class="text-center">
+                <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can check out other license options via our website: themes.3rdwavemedia.com */-->
+                <i class="fa fa-heart"></i>
+        </div><!--//container-->
+    </footer><!--//footer-->
+ 
+    <!-- Javascript -->          
+      
+    <!-- custom js -->
+    <script src="http://connect.qq.com/widget/loader/loader.js" widget="shareqq" charset="utf-8"></script>        
+<!--     <script type="text/javascript">
+        function download() {
+             window.location.href="http://7xtfps.com1.z0.glb.clouddn.com/%E5%BC%A0%E6%B5%A9%E7%9A%84%E7%AE%80%E5%8E%86.pdf";
+        }
+    </script> -->
+    <script type="text/javascript">
+        function showTel(t){
+            debugger;
+            t.style.display="none";
+            var tell=document.getElementById('tell');
+            tell.style.display='block';
+        }
+    </script>
 </body>
-</html>
+</html> 
+
