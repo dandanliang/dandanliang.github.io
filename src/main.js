@@ -7,7 +7,7 @@ import rap_proxy from "rap-global-proxy";
 
 
 Vue.config.productionTip = false
-rap_proxy.doProxy(21616);
+rap_proxy.doProxy('//rapapi.org/mockjs/', 21616);
 /* eslint-disable no-new */
 new Vue({
     el: '#app',
