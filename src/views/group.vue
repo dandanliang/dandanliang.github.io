@@ -2,7 +2,7 @@
     <div class="group">
         <!--header部分-->
         <header1>
-            <div class="tit">小 组</div>
+            <div class="tit">小组</div>
         </header1>
     
         <!--bg开始-->
@@ -14,9 +14,7 @@
             <a class="txt">根据小组推荐</a>
         </div>
         <div class="cat">
-            <a class="a" style="color: #fff;
-                                                bottom: 10px;
-                                                position: absolute;">有意思</a>
+            <a class="a" style="color: #fff;bottom: 10px; position: absolute;">有意思</a>
         </div>
         <!--文本-->
         <!--tab开始-->
@@ -38,19 +36,19 @@
         <!--tab结束-->
         <!--content-->
         <!--content开始-->
-        <div class="content">
+        <div class="content" v-for="paper in papers">
             <div class="con-l">
-                <div class="con-1-img">
-                </div>
+                <img class="con-1-img" :src="papers.urls">
+    
             </div>
             <div class="con-r">
                 <div class="con-r-tab">
                     <div class="con-r-tab-1">
-                        <h3>英剧！英剧！</h3>
-                        <p class="txt">看英剧的来，别扯别的！</p>
+                        <h3>{{papers.titles}}</h3>
+                        <p class="txt">{{papers.txt}}</p>
                     </div>
                     <div class="con-r-tab-r">
-                        <a class="body ">12333人</a>
+                        <a class="body ">{{papers.gzcount}}人</a>
                         <a class="icon">
     
                         </a>
@@ -118,9 +116,30 @@ export default {
     },
     data() {
         return {
-            tab: []
+            papers: [
+
+            ]
         }
     },
+    created() {
+        axios.post('api/234', { url: '2344' }).then((a) => {
+            this.papers = a.data;
+        }).catch((error) => {
+
+        })
+    },
+    // mathods: {
+    //     get: function () {
+    //         this.papers = JSON;
+    //     }
+    // },
+    // filters: {
+    //     imgUrl: function (value) {
+    //         if (!value) return "";
+    //         value = "img/" + value;
+    //         return value;
+    //     }
+    // }
 
 }
 
@@ -165,6 +184,16 @@ a.txt {
 .group {
     position: relative;
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -311,6 +340,16 @@ body {
     position: absolute;
     right: 25px;
 }
+
+
+
+
+
+
+
+
+
+
 
 
 

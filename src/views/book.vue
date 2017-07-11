@@ -4,9 +4,9 @@
         <header1>
             <span class="book">书影音</span>
             <!--<div class="Alink">
-                            <a class="search"></a>
-                            <a class="sgnIn"></a>
-                        </div>-->
+                                                            <a class="search"></a>
+                                                            <a class="sgnIn"></a>
+                                                        </div>-->
         </header1>
         <!--nav部分-->
         <ul class="menu">
@@ -37,14 +37,6 @@
         <!--banner-->
         <div class="banner">
             <div class="banner-item">
-                <div class="item">
-                    <a href="#" class="aimg">
-                        <img src="../../static/44.jpg">
-                    </a>
-                    <strong> 变形金刚5</strong>
-                    <span class="star">☆☆☆☆</span>
-                    <i>4.5</i>
-                </div>
                 <div class="item">
                     <a href="#" class="aimg">
                         <img src="../../static/44.jpg">
@@ -172,14 +164,17 @@ export default {
     float: right;
 }
 
-.banner-item {
+.banner {
     width: 100%;
 }
 
+.banner-item {
+
+    padding: 10px;
+    margin: 6px;
+}
+
 .item {
-    padding: 0px 15px;
-    width: 95px;
-    background: red;
     float: left;
 }
 
