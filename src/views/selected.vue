@@ -4,7 +4,7 @@
         <div class="header">
             <router-link class="link">
                 &lt;</router-link>
-                    <span>推 送</span>
+            <span>推 送</span>
         </div>
         <div class="con-txt">
             <div class="-l">1</div>
@@ -15,7 +15,6 @@
 </template>
 <script>
 export default {
-
 }
 </script>
 <style scoped>

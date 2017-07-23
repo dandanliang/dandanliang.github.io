@@ -1,48 +1,71 @@
-<<template>
-<!--隔栏-->
-   <div>
-     <!--header部分-->
-    <header1>
-        <input type="search" name="search" class="search" value="">
-    </header1>
-  <!--banner部分-->
-    <div class="conent">
-        <ul class="table-view">
-            <li class="table-view-cell " v-for="a in conent ">
-                <a href="javascript:;">
-                    <div class="body">
-                       <strong >{{a.title}}</strong> <!--年轻人-->
-                        <div class='ellipsis'>{{a.body}}</div>
-                    </div>
-                    <div class="img">
-                         <img class="imgs" :src="a.imgsrc" >
-                    </div>   
-                    <div class="name">
-                        <span>作者：{{a.author}}</span><a>X</a>
-                    </div>
-                </a>
-            </li>
-        </ul>
-          
+<template>
+    <!--隔栏-->
+    <div>
+        <!--header部分-->
+        <header1 class="home-header">
+            <input type="search" name="search" class="search" value="" placeholder="影视 图书 唱片 小组 舞台剧等">
+        </header1>
+        <home-panel :model="jrrd">
+            <span slot="top">今日热点</span>
+            <span slot="bottom-left">
+                <div class="round"></div>
+                <router-link to="/diary" class="mhn"> 梅花牛</router-link>
+            </span>
+            <span slot="bottom-right">×</span>
+        </home-panel>
+        <div style="clear: both;"></div>
+        <kind></kind>
+        <!--banner部分-->
+        <div class="conent">
+            <ul class="table-view">
+                <li class="table-view-cell " v-for="a in conent ">
+                    <a href="javascript:;">
+                        <div class="body">
+                            <strong>{{a.title}}</strong>
+                            <!--年轻人-->
+                            <div class='ellipsis'>{{a.body}}</div>
+                        </div>
+                        <div class="img">
+                            <img class="imgs" :src="a.imgsrc">
+                        </div>
+                        <div class="name">
+                            <span>作者：{{a.author}}</span>
+                            <a>X</a>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--footer-->
+        <footer2></footer2>
     </div>
-    <!--footer-->
-    <footer2></footer2>
- </div>
- <!--隔栏-->
+    <!--隔栏-->
 </template>
 <script>
 import Footer2 from '@/components/footer';
 import header1 from '@/components/headerNormal'
+import homeframe from '@/components/homeframe';
+import kind from '@/components/kind';
+import homePanel from '@/components/homePanel';
+
 import axios from "axios";
 export default {
     name: "home",
     components: {
-        Footer2, header1
+        Footer2,
+        header1,
+        kind,
+        homePanel,
+
     },
     data() {
         return {
             conent: [],
-
+            jrrd: {
+                title: "我刚割了双眼皮",
+                body: "打法的是否，打发的说法都是，大师法师打发斯蒂芬，大沙发的沙发斯蒂芬……",
+                img: "https://img1.doubanio.com/dae/niffler/niffler/images/7bea8578-3f69-11e7-8261-0242ac11001b.png"
+            }
 
         }
     },
@@ -55,8 +78,6 @@ export default {
             // debugger;
         })
     },
-
-
 }
 </script>
 <style scoped>
@@ -65,19 +86,23 @@ a {
     list-style: none;
 }
 
+.home-header {
+    line-height: 53px;
+    text-align: none;
+    background-color: #3fbd52;
+}
 
-/*.header {
-    line-height: 100px;
-    text-align: center;
-    background-color: #ea6f5a;
-}*/
+.h-round {
+    float: left;
+}
 
 .search {
     background: #fff;
-    height: 38px;
-    line-height: 38px;
+    height: 32px;
+    line-height: 32px;
     width: 80%;
     font-size: 14px;
+    margin-left: 10px;
     border: 1px solid #eee;
     text-indent: 2em;
     border-radius: 6px;
@@ -92,13 +117,7 @@ a {
     padding: 10px;
 }
 
-ul li {
-    list-style-type: none;
-}
 
-ul li a {
-    text-decoration: none
-}
 
 .active {
     text-align: center;
@@ -124,7 +143,7 @@ ul li a {
 .img {
     float: right;
     margin-top: 10px;
-    margin-right: 30px;
+    /*margin-right: 30px;*/
 }
 
 .imgs {
@@ -139,14 +158,32 @@ ul li a {
 
 .name span {
     margin-left: 10px;
-    color: bisque;
+    color: #e3e3e3;
 }
 
 .name a {
     display: inline;
     float: right;
-    margin: 0 35px;
+    /*margin: 0 35px;*/
     color: bisque;
+}
+
+.bottom-left {
+    position: relative;
+}
+
+.bottom-left .round-img {
+    width: 50px;
+    height: 50px;
+    margin-left: -10px;
+}
+
+
+.bottom-left .mhn {
+    position: absolute;
+
+    left: 52px;
+    top: -51px;
 }
 </style>
 

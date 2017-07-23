@@ -71,7 +71,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 span {
-  line-height: 60px;
+  line-height: 50px;
   font-size: 24px;
   font-family: "微软雅黑";
   color: #fff;
@@ -86,12 +86,12 @@ span {
 
 .phone,
 .pass {
-  background: #eee;
+  background: #f4f4f4;
   height: 38px;
   line-height: 38px;
   width: 99%;
   font-size: 14px;
-  border: 1px solid #eee;
+  border: 1px solid #f4f4f4;
   margin-bottom: 20px;
   text-indent: 1em;
 }
@@ -108,7 +108,7 @@ span {
   padding: 8px 25px;
   font-size: 18px;
   color: #fff;
-  background-color: #ea6f5a;
+  background-color: #3fbd52;
 }
 
 .btn-n {

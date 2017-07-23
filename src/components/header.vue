@@ -16,9 +16,9 @@
 <script>
 </script>
 <style scoped>
-.header {
+/*.header {
     display: flex;
-    background-color: #ea6f5a;
+    background-color: cyan;
 }
 
 .header .tit_l {
@@ -51,5 +51,5 @@
     font-size: 20px;
     font-family: cursive;
     color: #fff;
-}
+}*/
 </style>

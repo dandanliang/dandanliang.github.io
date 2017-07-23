@@ -22,10 +22,11 @@ export default {
     width: 100%;
     height: 30px;
     padding: 10px;
-    background: bisque;
+    background: #fff;
     z-index: 9999;
     position: fixed;
     bottom: 50px;
+    border-top: 1px solid #e4e4e4;
 }
 
 .qh-l,

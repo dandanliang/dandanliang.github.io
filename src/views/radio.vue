@@ -4,9 +4,9 @@
         <header1>
             <span class="tit">推荐广播</span>
             <!--<div class="Alink">
-                    <a class="search"></a>
-                    <a class="sgnIn"></a>
-                </div>-->
+                                                                                    <a class="search"></a>
+                                                                                    <a class="sgnIn"></a>
+                                                                                </div>-->
         </header1>
         <!--con部分-->
         <div class="con" v-for="paper in papers">
@@ -72,10 +72,8 @@ export default {
 }
 </script>
 <style scoped>
-.header .tit {
+.tit {
     display: block;
-    line-height: 60px;
-    font-size: 20px;
     font-family: "\5FAE\8F6F\96C5\9ED1";
     color: #fff;
     text-align: center;
@@ -113,18 +111,22 @@ export default {
 .con .con-r .con-r-1 span {
     z-index: 10;
     position: absolute;
-    right: -6px;
-    top: -14px;
+    right: 2px;
+    top: -10px;
 }
 
 .con-r-1 .con-item1 {
     flex: 2;
 }
 
+.con-item1 h3 {
+    height: 30px;
+}
+
 .con-r-1 .con-item1 p {
     font-size: 12px;
     line-height: 24px;
-    color: #ea6f5a;
+    color: #c7c7c7;
 }
 
 .con-r-1 .con-r-span {
@@ -142,19 +144,22 @@ export default {
     width: 64px;
     height: 28px;
     border-radius: 4px;
-    background-color: #ea6f5a;
+    background-color: rgb(63, 189, 82);
     text-align: center;
     line-height: 28px;
     border: none;
     font-size: 13px;
     color: #fff;
+    margin-top: -14px;
 }
-
-
 
 .con-r .con-r-2 {
     font-size: 13px;
     line-height: 20px;
+}
+
+.con-r .con-r-3 {
+    margin-top: 10px;
 }
 
 .con-r .con-r-3 a {

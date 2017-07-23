@@ -9,7 +9,7 @@
             <div slot="link" class="tit_r">
                 <div class="tit-r-box">
                     <router-link to='/setup'>
-                        <img src="../../static/setting.png" style="height:25px;width:25px;filter: invert(100%);">
+                        <img src="../../static/setting.png">
                     </router-link>
                 </div>
             </div>
@@ -230,9 +230,6 @@ export default {
     margin: 20px;
 }
 
-li {
-    list-style: none;
-}
 
 .nav-item {
     flex: 1;
@@ -277,26 +274,22 @@ li {
 
 .tit_l span {
 
-    font-size: 20px;
-    font-family: "微软雅黑";
-    color: #fff;
     text-align: center;
     display: block;
-    height: 60px;
-    line-height: 60px;
 }
 
-.header {
-
-    background-color: #ea6f5a;
+.tit_r img {
+    height: 20px;
+    width: 20px;
+    filter: invert(100%);
+    margin-top: 10px;
 }
 
 .header .tit_r {
     position: fixed;
     right: 0;
     top: 0;
-    line-height: 70px;
-    margin-right: 15px;
+    margin-right: 10px;
 }
 
 .tit-r-box {
@@ -306,9 +299,6 @@ li {
 .tit-r-box a {
     position: absolute;
     right: 25%;
-    margin-top: 50%;
-    font-size: 20px;
-    font-family: cursive;
     color: #fff;
 }
 </style>

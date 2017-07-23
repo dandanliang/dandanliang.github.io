@@ -1,10 +1,11 @@
-<<template>
-  <div>
+<template>
+    <div>
         <div class="header">
-            <router-link to="/me" class="link" style="list-style:none;"><</router-link >
-            <span>设置</span>
+            <router-link to="/me" class="link" style="list-style:none;">
+                <</router-link>
+                    <span>设置</span>
         </div>
-          <!--站位-->
+        <!--站位-->
         <div style="height:20px;background-color: #f0f1ec;width:100%;">
         </div>
         <!--推送部分-->
@@ -15,23 +16,12 @@
                     <a>></a>
                 </div>
             </div>
-            <div class="Push1 Push2"> <p>推送标签</p>
+            <router-link to="/interest" class="Push1 Push2">
+                <p>推送标签</p>
                 <div class="Jump">
                     <a>></a>
-                </div></div>
-        </div>
-       <!--站位-->
-        <div style="height:20px;background-color: #f0f1ec;width:100%;">
-        </div>
-        <!--Push-->
-        <div class="Push">
-            <div class="Push1 Push2">
-                    <p>清理存在空间</p>
-                    <div class="Jump item-flow">
-                        <p class="flow">123MB</p>
-                        <a>></a>
-                    </div>
                 </div>
+            </router-link>
         </div>
         <!--站位-->
         <div style="height:20px;background-color: #f0f1ec;width:100%;">
@@ -39,63 +29,74 @@
         <!--Push-->
         <div class="Push">
             <div class="Push1 Push2">
-                    <p>将[小组]放在桌面</p>
-                    <div class="Jump item-flow">
-                        <p class="flow"></p>
-                        <a></a>
-                    </div>
+                <p>清理存在空间</p>
+                <div class="Jump item-flow">
+                    <p class="flow">123MB</p>
+                    <a>></a>
                 </div>
+            </div>
         </div>
-         <!--站位-->
+        <!--站位-->
         <div style="height:20px;background-color: #f0f1ec;width:100%;">
         </div>
-         <!--Push-->
+        <!--Push-->
+        <div class="Push">
+            <div class="Push1 Push2">
+                <p>将[小组]放在桌面</p>
+                <div class="Jump item-flow">
+                    <p class="flow"></p>
+                    <a></a>
+                </div>
+            </div>
+        </div>
+        <!--站位-->
+        <div style="height:20px;background-color: #f0f1ec;width:100%;">
+        </div>
+        <!--Push-->
         <div class="Push">
             <div class="Push1">
-                    <p>清理存在空间</p>
-                    <div class="Jump item-flow">
-                        
-                        <a><p class="flow">来尽情吐槽吧</p>></a>
-                    </div>
+                <p>清理存在空间</p>
+                <div class="Jump item-flow">
+    
+                    <a>
+                        <p class="flow">来尽情吐槽吧</p>></a>
                 </div>
-             <div class="Push1 ">
+            </div>
+            <div class="Push1 ">
                 <p>网络诊断</p>
                 <div class="Jump">
                     <a>></a>
                 </div>
             </div>
         </div>
-         <!--站位-->
+        <!--站位-->
         <div style="height:20px;background-color: #f0f1ec;width:100%;">
         </div>
         <!--Push-->
         <div class="Push">
             <div class="Push1">
-                    <p>新功能介绍</p>
-                    <div class="Jump item-flow">
-                        <a>></a>
-                    </div>
+                <p>新功能介绍</p>
+                <div class="Jump item-flow">
+                    <a>></a>
                 </div>
-             <div class="Push1 ">
+            </div>
+            <div class="Push1 ">
                 <p class="About">关于</p>
                 <div class="Jump">
                     <a>></a>
                 </div>
             </div>
-             <div class="Push1 ">
-                <p >开源许可</p>
+            <div class="Push1 ">
+                <p>开源许可</p>
                 <div class="Jump">
                     <a>></a>
                 </div>
             </div>
         </div>
-          <!--站位-->
+        <!--站位-->
         <div style="height:20px;background-color: #f0f1ec;width:100%;">
         </div>
-
-
-
-  </div>
+    </div>
 </template>
 <script>
 export default {
@@ -105,12 +106,12 @@ export default {
 <style scoped>
 .header {
     width: 100%;
-    height: 60px;
-    background-color: #ea6f5a;
+    line-height: 45px;
+    background-color: #fff;
+    border: 1px solid #e4e4e4;
 }
 
 .header .link {
-    font-size: 20px;
     font-family: cursive;
     color: #fff;
     float: left;
@@ -119,10 +120,8 @@ export default {
 }
 
 span {
-    line-height: 60px;
     font-size: 24px;
-    font-family: "微软雅黑";
-    color: #fff;
+    color: #000;
     text-align: center;
     display: block;
 }
