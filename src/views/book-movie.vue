@@ -1,5 +1,5 @@
 <template>
-    <div style="margin-bottom:60px;">
+    <div>
         <!--标题-->
         <div class="tit">
             <span>电影热映</span>
@@ -20,8 +20,8 @@
         </div>
     
         <!--站位-->
-        <div style="height:20px;background-color: #eee;width:100%;clear:both">
-        </div>
+        <!--<div style="height:20px;background-color: #eee;width:100%;clear:both">
+                                                        </div>-->
         <!--banner2部分-->
         <div class="banner2">
             <img src="../../static/bookbgmusic.png">
@@ -33,7 +33,50 @@
         <home-panel :model="jrrd">
             <span slot="top"></span>
             <span slot="bottom-left">
-                <!--<div class="round"></div>-->
+                <router-link to="/diary" class="mhn"> 梅花牛</router-link>
+            </span>
+            <span slot="bottom-right">×</span>
+        </home-panel>
+        <!--banner-->
+        <div class="banner">
+            <div class="banner-item">
+                <div class="item" v-for="tab in tabs">
+                    <a href="#" class="aimg">
+                        <img src="../../static/44.jpg">
+                    </a>
+                    <strong> {{tab.movie}}</strong>
+                    <span class="star">{{starStr(tab)}}</span>
+                    <i>4.5</i>
+                </div>
+            </div>
+        </div>
+        <div class="banner">
+            <div class="banner-item">
+                <div class="item" v-for="tab in tabs">
+                    <a href="#" class="aimg">
+                        <img src="../../static/44.jpg">
+                    </a>
+                    <strong> {{tab.movie}}</strong>
+                    <span class="star">{{starStr(tab)}}</span>
+                    <i>4.5</i>
+                </div>
+            </div>
+        </div>
+        <div class="banner">
+            <div class="banner-item">
+                <div class="item" v-for="tab in tabs">
+                    <a href="#" class="aimg">
+                        <img src="../../static/44.jpg">
+                    </a>
+                    <strong> {{tab.movie}}</strong>
+                    <span class="star">{{starStr(tab)}}</span>
+                    <i>4.5</i>
+                </div>
+            </div>
+        </div>
+        <home-panel :model="jrrd">
+            <span slot="top"></span>
+            <span slot="bottom-left">
                 <router-link to="/diary" class="mhn"> 梅花牛</router-link>
             </span>
             <span slot="bottom-right">×</span>
@@ -46,13 +89,37 @@ import homePanel from '@/components/homePanel';
 
 export default {
     components: {
-
         homePanel
 
     },
     data() {
         return {
             tabs: [{
+                img: "../../static/44.jpg",
+                movie: '变形金刚5',
+                star: 4
+
+            }, {
+                img: "../../static/44.jpg",
+                movie: '变形金刚5',
+                star: 4
+
+            }, {
+                img: "../../static/44.jpg",
+                movie: '变形金刚5',
+                star: 4
+
+            }, {
+                img: "../../static/44.jpg",
+                movie: '变形金刚5',
+                star: 4
+
+            }, {
+                img: "../../static/44.jpg",
+                movie: '变形金刚5',
+                star: 4
+
+            }, {
                 img: "../../static/44.jpg",
                 movie: '变形金刚5',
                 star: 4
@@ -104,6 +171,8 @@ export default {
 }
 </script>
 <style>
+/*bookmore组件样式开始*/
+
 .tit {
     height: 18px;
     line-height: 18px;
@@ -119,7 +188,7 @@ export default {
 .tit a {
     display: block;
     font-size: 14px;
-    color: #ea6f5a;
+    color: rgb(63, 189, 82);
     float: right;
 }
 
@@ -129,14 +198,6 @@ export default {
     height: 190px;
     overflow-x: auto;
 }
-
-
-
-
-
-
-
-
 
 
 

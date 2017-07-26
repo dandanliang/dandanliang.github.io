@@ -21,6 +21,12 @@ import readbook from '@/views/book-readbook'
 import tv from '@/views/book-tv'
 import city from '@/views/book-city'
 import music from '@/views/book-music'
+import bookmore from '@/components/bookmore'
+import shop from '@/views/book-shop'
+import leftbg from '@/components/leftbg'
+import shopbanner from '@/components/shopbanner'
+import tlflex from '@/components/tlflex'
+import scrolls from '@/components/scrollbanner'
 Vue.use(Router)
 
 export default new Router({
@@ -59,6 +65,9 @@ export default new Router({
         }, {
             path: 'music',
             component: music
+        }, {
+            path: 'shop',
+            component: shop
         }]
     }, {
         path: "/radio",
@@ -112,5 +121,25 @@ export default new Router({
         path: "/nav",
         name: "nav",
         component: nav
+    }, {
+        path: "/bookmore",
+        name: "bookmore",
+        component: bookmore
+    }, {
+        path: "/leftbg",
+        name: "leftbg",
+        component: leftbg
+    }, {
+        path: "/shopbanner",
+        name: "shopbanner",
+        component: shopbanner
+    }, {
+        path: "/tlflex",
+        name: "tlflex",
+        component: tlflex
+    }, {
+        path: "/scroll",
+        name: "scroll",
+        component: scroll
     }]
 })

@@ -1,12 +1,9 @@
 <template>
     <div class="body">
         <!--header头部-->
-        <header1>
+        <header1 style="margin-buttom:70px;">
             <span class="tit">推荐广播</span>
-            <!--<div class="Alink">
-                                                                                    <a class="search"></a>
-                                                                                    <a class="sgnIn"></a>
-                                                                                </div>-->
+    
         </header1>
         <!--con部分-->
         <div class="con" v-for="paper in papers">
@@ -47,7 +44,8 @@ import axios from "axios";
 export default {
      components:{
         Footer2,
-        links,header1
+        links,
+        header1
     },
     data(){
         return {

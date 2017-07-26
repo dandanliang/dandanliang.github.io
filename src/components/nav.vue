@@ -1,7 +1,7 @@
 <template>
     <ul class="menu">
-        <li v-for="tab in tabs" v-on:click="tabClick(tab)">
-            <a :style="setStyle(tab)">{{tab.name}}</a>
+        <li v-for="lis in tabs" v-on:click="tabClick(lis)">
+            <a :style="setStyle(lis)">{{lis.name}}</a>
         </li>
     </ul>
 </template>
@@ -24,17 +24,20 @@ export default {
             }, {
                 name: '音 乐',
                 path: '/book/music'
+            }, {
+                name: '集 市',
+                path: '/book/shop'
             }]
         }
     },
 
     methods: {
-        tabClick(tab) {
-            // this.$router.push({path:tab.path});
-            this.$router.push({ path: tab.path });
+        tabClick(lis) {
+            // this.$router.push({path:lis.path});
+            this.$router.push({ path: lis.path });
         },
-        setStyle(tab) {
-            if (this.$route.path === tab.path) return { class: "active" };
+        setStyle(lis) {
+            if (this.$route.path === lis.path) return { borderBottom: " 2px solid rgb(63, 189, 82)", color: "rgb(63, 189, 82)" };
             else return {};
         }
     }
@@ -46,14 +49,15 @@ export default {
     width: 100%;
     height: 50px;
     line-height: 50px;
-    border-bottom: 1px solid #49e24f;
+    display: flex;
 }
 
 .menu li {
     list-style: none;
     float: left;
     text-align: center;
-    width: 20%;
+    /*width: 20%;*/
+    flex: 1;
 }
 
 .menu li .active {
@@ -64,11 +68,11 @@ export default {
     border-bottom: 2px solid #ea6f5a;
 }
 
-.menu li a:hover.hover {
+.menu li a {
     display: block;
-    width: 82.8px;
+    /*width: 82.8px;*/
     line-height: 50px;
-    color: #ea6f5a;
+    color: #999;
 }
 </style>
 

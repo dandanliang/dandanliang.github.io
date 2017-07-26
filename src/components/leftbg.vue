@@ -5,21 +5,22 @@
         </div>
         <div class="body">
             <div class="left">
-                <h2>{{model.title}}</h2>
-                <p class="txt">{{model.body}}</p>
-            </div>
-            <div class="right">
                 <img :src="model.img" />
             </div>
-        </div>
-        <div class="bottom">
-            <div class="left">
-                <slot name="bottom-left"></slot>
-            </div>
             <div class="right">
-                <slot name="bottom-right"></slot>
+                <h2>{{model.title}}</h2>
+                <p class="txt">{{model.body}}</p>
+                <div class="bottom">
+                    <div class="left">
+                        <slot name="bottom-left"></slot>
+                    </div>
+                    <div class="right">
+                        <slot name="bottom-right"></slot>
+                    </div>
+                </div>
             </div>
         </div>
+    
     </div>
 </template>
 <script>
@@ -71,29 +72,30 @@ export default {
 
 .h-panel .body .left {
     /*float: left;*/
-    flex: 3;
+    flex: 1;
 }
 
-.h-panel .body .left h2 {
+.h-panel .body .right h2 {
     font-size: 19px;
     color: #666;
 }
 
-.h-panel .body .left .txt {
-    font-size: 15px;
-    color: #9B9B9B;
+.h-panel .body .right .txt {
+    font-size: 16px;
+    color: #a7a7a7;
     line-height: 1.5em;
 }
 
 .h-panel .body .right {
     float: right;
-    flex: 1;
-    margin-left: 20px;
+    margin-left: 27px;
+    flex: 3;
+    /*margin-left: 20px;*/
 }
 
-.h-panel .body .right img {
+.h-panel .body .left img {
     height: 120px;
-    width: 80px;
+    width: 120px;
 }
 </style>
 

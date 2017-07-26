@@ -9,13 +9,13 @@
         <book-nav></book-nav>
     
         <!--站位-->
-        <div style="height:20px;background-color: #eee;width:100%;">
-        </div>
+        <!--<div style="height:20px;background-color: #eee;width:100%;">
+            </div>-->
         <router-view></router-view>
     
         <!--站位-->
-        <div style="height:20px;background-color: #eee;width:100%;clear:both">
-        </div>
+        <!--<div style="height:20px;background-color: #eee;width:100%;clear:both">
+                    </div>-->
         <!--footer-->
         <footer2></footer2>
     

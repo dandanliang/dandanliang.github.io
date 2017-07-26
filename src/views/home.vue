@@ -1,6 +1,6 @@
 <template>
     <!--隔栏-->
-    <div>
+    <div class="home">
         <!--header部分-->
         <header1 class="home-header">
             <input type="search" name="search" class="search" value="" placeholder="影视 图书 唱片 小组 舞台剧等">
@@ -9,9 +9,11 @@
             <span slot="top">今日热点</span>
             <span slot="bottom-left">
                 <div class="round"></div>
-                <router-link to="/diary" class="mhn"> 梅花牛</router-link>
+                <router-link to="/diary" class="mhn">
+                    <p style="font-size:18px; color: #e3e3e3;margin:0;">梅花牛</p>
+                </router-link>
             </span>
-            <span slot="bottom-right">×</span>
+            <span slot="bottom-right" class="bgz">×</span>
         </home-panel>
         <div style="clear: both;"></div>
         <kind></kind>
@@ -36,6 +38,16 @@
                 </li>
             </ul>
         </div>
+        <home-panel :model="jrrd">
+            <span slot="top">今日热点</span>
+            <span slot="bottom-left">
+                <div class="round"></div>
+                <router-link to="/diary" class="mhn">
+                    <p style="font-size:18px; color: #e3e3e3;margin:0;">梅花牛</p>
+                </router-link>
+            </span>
+            <span slot="bottom-right" class="bgz">×</span>
+        </home-panel>
         <!--footer-->
         <footer2></footer2>
     </div>
@@ -81,7 +93,7 @@ export default {
 }
 </script>
 <style scoped>
-a {
+.home a {
     text-decoration: none;
     list-style: none;
 }
@@ -98,8 +110,8 @@ a {
 
 .search {
     background: #fff;
-    height: 32px;
-    line-height: 32px;
+    height: 25px;
+    line-height: 25px;
     width: 80%;
     font-size: 14px;
     margin-left: 10px;
@@ -161,11 +173,11 @@ a {
     color: #e3e3e3;
 }
 
-.name a {
+.name a,
+.bgz {
     display: inline;
     float: right;
-    /*margin: 0 35px;*/
-    color: bisque;
+    color: #e5e5e5;
 }
 
 .bottom-left {
@@ -181,9 +193,10 @@ a {
 
 .bottom-left .mhn {
     position: absolute;
-
+    font-size: 16px;
     left: 52px;
     top: -51px;
+    color: #000;
 }
 </style>
 

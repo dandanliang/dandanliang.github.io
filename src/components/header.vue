@@ -16,7 +16,7 @@
 <script>
 </script>
 <style scoped>
-/*.header {
+.header {
     display: flex;
     background-color: cyan;
 }
@@ -51,5 +51,5 @@
     font-size: 20px;
     font-family: cursive;
     color: #fff;
-}*/
+}
 </style>

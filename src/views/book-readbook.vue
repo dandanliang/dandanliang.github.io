@@ -1,7 +1,12 @@
 <template>
     <div>
-        <div class="book-tit">
-            读书</div>
+        <!--使用book-more组件-->
+        <book-more>
+            <span slot="fl-h1" class="more-span-txt"> 读书</span>
+            <span slot="more-right">
+                <a class="more-right-a">更多&gt;</a>
+            </span>
+        </book-more>
         <home-panel v-for="item in items" :model="item">
             <span slot="top"></span>
             <span slot="bottom-left">
@@ -14,9 +19,11 @@
 </template>
 <script>
 import homePanel from '@/components/homePanel';
+import bookMore from '@/components/bookmore';
 export default {
     components: {
-        homePanel
+        homePanel,
+        bookMore
     },
     data() {
         return {
@@ -44,11 +51,29 @@ export default {
 }
 </script>
 <style>
-.book-tit {
+.more-span-txt {
+    height: 18px;
+    width: 99%;
+    font-size: 18px;
+}
+
+.more-right-a {
+    position: absolute;
+    right: 0;
+    margin-right: 10px;
+    font-size: 14px;
+    color: rgb(63, 189, 82);
+}
+
+
+
+
+
+/*.book-tit {
     height: 18px;
     line-height: 18px;
     padding: 16px
-}
+}*/
 </style>
 
 

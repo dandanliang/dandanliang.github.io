@@ -3,10 +3,10 @@
         <!--header头部-->
         <div class="header">
             <span class="tit">推荐广播</span>
-            <div class="Alink">
-                <a class="search"></a>
-                <a class="sgnIn"></a>
-            </div>
+            <!--<div class="Alink">
+                    <a class="search"></a>
+                    <a class="sgnIn"></a>
+                </div>-->
         </div>
         <!--con部分-->
         <div class="con" v-for="paper in papers">
@@ -35,28 +35,28 @@
     
     </div>
 </template>
-<script>
+<<script>
 import axios from "axios";
 export default {
-    data() {
-        return {
-            papers: []
-        }
-    }, created() {
-        axios.post('api/radio', { uid: '12' }).then((a) => {
-
-            this.papers = a.data;
-        }).catch((error) => {
+  data(){
+      return {
+          papers:[]
+      }
+  },  created(){
+        axios.post('api/radio',{uid:'12'}).then((a)=>{
+           
+            this.papers=a.data;
+        }).catch((error)=>{
             debugger;
         })
     },
-
-    methods: {
-        computedImg(url) {
-            let temp = 'url(' + url + ') center center / cover no-repeat';
-            return { "background": temp };
-        }
-    }
+  
+  methods :{
+      computedImg(url){
+         let temp='url('+url+') center center / cover no-repeat';
+        return {"background":temp};
+      }
+  }
 }
 </script>
 <style scoped>
