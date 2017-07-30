@@ -16,6 +16,7 @@
             <span slot="bottom-right" class="bgz">×</span>
         </home-panel>
         <div style="clear: both;"></div>
+        <!--kind组件-->
         <kind></kind>
         <!--banner部分-->
         <div class="conent">
@@ -74,7 +75,7 @@ export default {
         return {
             conent: [],
             jrrd: {
-                title: "我刚割了双眼皮",
+                title: "先给自己定一个小目标，挣它一个亿",
                 body: "打法的是否，打发的说法都是，大师法师打发斯蒂芬，大沙发的沙发斯蒂芬……",
                 img: "https://img1.doubanio.com/dae/niffler/niffler/images/7bea8578-3f69-11e7-8261-0242ac11001b.png"
             }
@@ -84,7 +85,6 @@ export default {
     created() {
         // 异步加载首页数据
         axios.post('api/home', { uid: '123' }).then((a) => {
-
             this.conent = a.data.conent;
         }).catch((error) => {
             // debugger;

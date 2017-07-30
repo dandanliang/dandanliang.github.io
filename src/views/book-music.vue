@@ -1,7 +1,7 @@
 <template>
     <div class="bookmusic">
         <!--站位-->
-        <div style="height:20px;background-color: #eee;width:100%;margin-top: 10px;">
+        <div class="Station">
         </div>
         <book-more>
             <span slot="fl-h1" class="more-span-txt">华语新碟版</span>
@@ -25,7 +25,7 @@
             </div>
         </div>
         <!--站位-->
-        <div style="height:20px;background-color: #eee;width:100%;margin-top: 10px;">
+        <div class="Station">
         </div>
         <book-more>
             <span slot="fl-h1" class="more-span-txt">欧美新碟版</span>
@@ -49,7 +49,7 @@
             </div>
         </div>
         <!--站位-->
-        <div style="height:20px;background-color: #eee;width:100%;margin-top: 10px;">
+        <div class="Station">
         </div>
         <book-more>
             <span slot="fl-h1" class="more-span-txt">热门单曲版</span>
@@ -73,7 +73,7 @@
             </div>
         </div>
         <!--站位-->
-        <div style="height:20px;background-color: #eee;width:100%;margin-top: 10px;">
+        <div class="Station">
         </div>
         <!--book-more组件-->
     
@@ -86,17 +86,15 @@
     
         <!--home-panel组件-->
         <home-panel :model="music">
-            <span slot="top" class="titles"></span>
+            <span slot="top" style="height:0;" class="titles"></span>
             <span slot="bottom-left">
                 <div class="round"></div>
-    
                 <p class="music-name">作者：匿名</p>
-    
             </span>
             <span slot="bottom-right" class="bgz"></span>
         </home-panel>
         <!--站位-->
-        <div style="height:20px;background-color: #eee;width:100%;margin-top: 10px;">
+        <div class="Station">
         </div>
         <!--book-more组件-->
         <book-more>
@@ -113,14 +111,13 @@
                     </a>
                     <strong> {{item.title}}</strong>
                     <p class="slot-txt">{{item.name}}</p>
-    
                     <span class="star times">{{Getstar(item)}}</span>
                     <i>9</i>
                 </div>
             </div>
         </div>
         <!--站位-->
-        <div style="height:20px;background-color: #eee;width:100%;margin-top: 10px;">
+        <div class="Station">
         </div>
         <book-more>
             <span slot="fl-h1" class="more-span-txt">音乐类型</span>
@@ -130,17 +127,21 @@
         </book-more>
         <!--breed组件选项-->
     
-        <div slot="fl-h1" class="Trend-bottom">
-            <span class="Trend">流行</span>
-            <span class="Trend">流行</span>
-            <span class="Trend">流行</span>
-            <span class="Trend">流行</span>
+        <div class="Trend-bottom">
+            <div class="ttt">
+                <span class="Trend">流行</span>
+                <span class="Trend">流行</span>
+                <span class="Trend">流行</span>
+                <span class="Trend">流行</span>
+            </div>
         </div>
-        <div slot="fl-h1" class="Trend-bottom" style="border:none;">
-            <span class="Trend">流行</span>
-            <span class="Trend">流行</span>
-            <span class="Trend">流行</span>
-            <span class="Trend">流行</span>
+        <div class="Trend-bottom" style="border:none;">
+            <div class="ttt">
+                <span class="Trend">流行</span>
+                <span class="Trend">流行</span>
+                <span class="Trend">流行</span>
+                <span class="Trend">流行</span>
+            </div>
         </div>
         <!--book-more组件-->
         <book-more>
@@ -293,22 +294,41 @@ export default {
 
 .Trend-bottom {
     border-bottom: 1px solid #f0f1ec;
-    /*margin-bottom: 50px;*/
     padding: 16px;
+    display: flex;
 }
-
 
 
 .Trend-bottom .Trend {
     display: inline-block;
     border: 1px solid rgb(63, 189, 82);
-    height: 30px;
-    line-height: 30px;
+    height: 26px;
+    line-height: 26px;
     border-radius: 20px;
     color: rgb(63, 189, 82);
     padding: 0 20px;
     margin-right: 10px;
+    flex: 1;
+    margin-bottom: 20px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -348,6 +368,24 @@ export default {
     font-size: 15px;
     color: #999;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

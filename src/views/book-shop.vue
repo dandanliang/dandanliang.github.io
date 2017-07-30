@@ -31,7 +31,7 @@
     
         <!--使用leftbg组件-->
         <left-bg :model="shop">
-            <span slot="top"></span>
+            <span slot="top" style="height:0;"></span>
             <span slot="bottom-left">
                 <span class="cart-money">&yen;123</span>
                 <del class="cart-dels">&yen;149</del>
@@ -163,6 +163,7 @@ export default {
 .cart-dels {
     font-size: 16px;
 }
+
 
 
 

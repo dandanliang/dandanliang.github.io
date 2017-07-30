@@ -1,35 +1,108 @@
 <template>
     <div>
+        <!--占位符-->
+        <div class="Station">
+        </div>
+        <!--占位符结束-->
         <book-more>
-            <span slot="fl-h1" class="more-span-txt"> 读书</span>
+            <span slot="fl-h1" class="more-span-txt"> 今日更新</span>
             <span slot="more-right">
                 <a class="more-right-a">更多&gt;</a>
             </span>
         </book-more>
         <div class="tv-con">
             <div class="tv-cons">
-                <div class="tv-con-item" v-for="tab in tabs">
+                <div class="tv-con-item" v-for="renew in renews">
                     <div class="tv-fl">
                         <div class="tv-img">
-                            <img src="../../static/8.jpg">
+                            <img :src="renew.img">
                         </div>
                     </div>
                     <div class="tv-fr">
-                        <h2>{{tab.title}}</h2>
-                        <span class="star">{{Getstar(tab)}}6.6</span>
-                        <p>{{tab.text}}</p>
+                        <h2>{{renew.title}}</h2>
+                        <span class="star">{{starStr(renew)}}
+                            <em>{{renew.star}}</em>
+                        </span>
+                        <p>{{renew.text}}
+                            <br>
+                            <span>{{renew.numders}}人想看</span>
+                        </p>
     
                     </div>
                 </div>
-    
             </div>
-    
         </div>
-        <div style="height:20px;background-color: #eee;width:100%;">
+        <!--占位符-->
+        <book-more>
+            <span slot="fl-h1" class="more-span-txt"> 最近值得看的国产剧</span>
+            <span slot="more-right">
+                <a class="more-right-a">更多&gt;</a>
+            </span>
+        </book-more>
+        <!--banner-->
+        <div class="banner">
+            <div class="banner-item">
+                <div class="item" v-for="recent in recents">
+                    <a href="#" class="aimg">
+                        <img :src="recent.img">
+                    </a>
+                    <strong style="display:block"> {{recent.title}}</strong>
+                    <span class="star">{{starStr(recent)}}</span>
+                    <i> {{recent.star}}</i>
+                </div>
+            </div>
+        </div>
+        <!--占位符-->
+        <book-more>
+            <span slot="fl-h1" class="more-span-txt"> 最近值得看的美剧</span>
+            <span slot="more-right">
+                <a class="more-right-a">更多&gt;</a>
+            </span>
+        </book-more>
+        <!--banner-->
+        <div class="banner">
+            <div class="banner-item">
+                <div class="item" v-for="ustv in ustvs">
+                    <a href="#" class="aimg">
+                        <img :src="ustv.img">
+                    </a>
+                    <strong style="display:block"> {{ustv.title}}</strong>
+                    <span class="star">{{starStr(ustv)}}</span>
+                    <i> {{ustv.star}}</i>
+                </div>
+            </div>
+        </div>
+        <!--占位符-->
+        <book-more>
+            <span slot="fl-h1" class="more-span-txt"> 最近值得看的泰剧</span>
+            <span slot="more-right">
+                <a class="more-right-a">更多&gt;</a>
+            </span>
+        </book-more>
+        <!--banner-->
+        <div class="banner">
+            <div class="banner-item">
+                <div class="item" v-for="tg in tgs">
+                    <a href="#" class="aimg">
+                        <img :src="tg.img">
+                    </a>
+                    <strong style="display:block"> {{tg.title}}</strong>
+                    <span class="star">{{starStr(tg)}}</span>
+                    <i> {{tg.star}}</i>
+                </div>
+            </div>
         </div>
         <book-more>
+            <span slot="fl-h1" class="more-span-txt"> 你可能感兴趣的</span>
+            <span slot="more-right">
+                <a class="more-right-a">更多&gt;</a>
+            </span>
+        </book-more>
+        <!--组件-->
+        <hotlikes :model="labe"></hotlikes>
+        <hotlikes :model="labe"></hotlikes>
+        <book-more>
             <span>最近期待看的国产电视剧</span>
-    
         </book-more>
         <home-panel :model="dsj">
             <span slot="top"></span>
@@ -38,89 +111,32 @@
             </span>
             <span slot="bottom-right">×</span>
         </home-panel>
-        </book-more>
-    
     </div>
 </template>
 <script>
 import homePanel from '@/components/homePanel';
 import bookMore from '@/components/bookmore';
-
+import hotlikes from '@/components/hotlikes';
+import axios from "axios";
 export default {
     components: {
         homePanel,
         bookMore,
+        hotlikes
 
     },
     data() {
         return {
-            tabs: [{
+            renews: [],
+            recents: [],
+            ustvs: [],
+            tgs: [],
+            labe: {
                 img: "../../static/8.jpg",
-                title: '我的前半生',
+                title: '永远的托词',
                 star: 5,
-                text: "更新到36集/每天更新/优酷更新,爱奇艺，腾讯视频123456人想看"
-
-            }, {
-                img: "../../static/8.jpg",
-                title: '我的前半生1',
-                star: 5,
-                text: "更新到36集/每天更新/优酷更新,爱奇艺，腾讯视频123456人想看"
-
-            }, {
-                img: "../../static/8.jpg",
-                title: '我的前半生',
-                star: 5,
-                text: "更新到36集/每天更新/优酷更新,爱奇艺，腾讯视频123456人想看"
-
-            }, {
-                img: "../../static/8.jpg",
-                title: '我的前半生',
-                star: 5,
-                text: "更新到36集/每天更新/优酷更新,爱奇艺，腾讯视频123456人想看"
-
-            }, {
-                img: "../../static/8.jpg",
-                title: '我的前半生',
-                star: 5,
-                text: "更新到36集/每天更新/优酷更新,爱奇艺，腾讯视频123456人想看"
-
-            }, {
-                img: "../../static/8.jpg",
-                title: '我的前半生',
-                star: 5,
-                text: "更新到36集/每天更新/优酷更新,爱奇艺，腾讯视频123456人想看"
-
-            }, {
-                img: "../../static/8.jpg",
-                title: '我的前半生',
-                star: 5,
-                text: "更新到36集/每天更新/优酷更新,爱奇艺，腾讯视频123456人想看"
-
-            }, {
-                img: "../../static/8.jpg",
-                title: '我的前半生',
-                star: 5,
-                text: "更新到36集/每天更新/优酷更新,爱奇艺，腾讯视频123456人想看"
-
-            }, {
-                img: "../../static/8.jpg",
-                title: '我的前半生',
-                star: 5,
-                text: "更新到36集/每天更新/优酷更新,爱奇艺，腾讯视频123456人想看"
-
-            }, {
-                img: "../../static/8.jpg",
-                title: '我的前半生',
-                star: 5,
-                text: "更新到36集/每天更新/优酷更新,爱奇艺，腾讯视频123456人想看"
-
-            }, {
-                img: "../../static/8.jpg",
-                title: '我的前半生',
-                star: 5,
-                text: "更新到36集/每天更新/优酷更新,爱奇艺，腾讯视频123456人想看"
-
-            }],
+                text: "最近值得看的"
+            },
             dsj: {
                 title: "醉玲珑",
                 body: "打法的是否，打发的说法都是，大师法师打发斯蒂芬，大沙发的沙发斯蒂芬……",
@@ -132,13 +148,23 @@ export default {
     },
 
     methods: {
-        Getstar(item) {
+        starStr(item) {
             let result = [];
             for (let i = 0; i < item.star; i++) {
                 result.push("☆");
             }
             return result.join("");
         }
+    },
+    created() {
+        axios.post("api/tv", { uid: "123" }).then((n) => {
+            this.renews = n.data.renews;
+            this.recents = n.data.recents;
+            this.ustvs = n.data.ustvs;
+            this.tgs = n.data.tgs;
+        }).catch((error) => {
+
+        })
     }
 
 }
@@ -158,6 +184,20 @@ export default {
     color: rgb(63, 189, 82);
 }
 
+.banner {
+    padding: 10px;
+    height: 190px;
+    overflow-x: auto;
+}
+
+.banner .banner-item {
+    width: 10000px;
+}
+
+.banner .item {
+    width: 110px;
+    float: left;
+}
 
 .tv-con {
     height: 200px;
@@ -210,49 +250,6 @@ export default {
     color: #a7a7a7;
     line-height: 22px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

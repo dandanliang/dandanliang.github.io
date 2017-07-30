@@ -6,7 +6,7 @@
     
         </header1>
         <!--con部分-->
-        <div class="con" v-for="paper in papers">
+        <div class="con" v-for="(index,paper) in papers">
             <div class="con-l">
                 <div class="con-l-img" :style="computedImg(paper.url)"></div>
             </div>

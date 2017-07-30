@@ -42,7 +42,7 @@
 .kind div img {
     width: 24px;
     height: 24px;
-    background: yellow;
+    /*background: yellow;*/
 }
 
 .kind div p {
@@ -52,19 +52,19 @@
 
 .Times {
     flex: 1;
-    background: red;
+    /*background: red;*/
 }
 
 .Market {
-    background: yellowgreen;
+    /*background: yellowgreen;*/
 }
 
 .Books {
-    background: cyan;
+    /*background: cyan;*/
 }
 
 .Radios {
-    background: pink;
+    /*background: pink;*/
 }
 </style>
 

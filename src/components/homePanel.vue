@@ -6,6 +6,7 @@
         <div class="body">
             <div class="left">
                 <h2>{{model.title}}</h2>
+    
                 <p class="txt">{{model.body}}</p>
             </div>
             <div class="right">
@@ -34,7 +35,7 @@ export default {
 </script>
 <style scoped>
 .h-panel {
-    border-top: 1px solid #e7e7e7;
+
     margin-bottom: 20px;
     padding: 10px;
     display: inline-block;
@@ -77,12 +78,13 @@ export default {
 .h-panel .body .left h2 {
     font-size: 19px;
     color: #666;
+    line-height: 25px;
 }
 
 .h-panel .body .left .txt {
     font-size: 15px;
     color: #9B9B9B;
-    line-height: 1.5em;
+    line-height: 24px;
 }
 
 .h-panel .body .right {

@@ -1,7 +1,7 @@
 <template>
     <div class="shop-banner" v-if="model!==null">
         <div class="bg-img">
-            <img/>
+            <!--<img/>-->
             <slot name="bg-img"></slot>
         </div>
         <div class="bottom">

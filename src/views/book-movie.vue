@@ -1,41 +1,156 @@
 <template>
     <div>
-        <!--标题-->
-        <div class="tit">
-            <span>电影热映</span>
-            <a>更多 &#155</a>
+        <!--占位符-->
+        <div class="Station">
         </div>
+        <!--标题-->
+        <book-more>
+            <span slot="fl-h1" class="more-span-txt">电影热映</span>
+            <span slot="more-right">
+                <a class="more-right-a">更多&gt;</a>
+            </span>
+        </book-more>
         <!--banner-->
         <div class="banner">
             <div class="banner-item">
-                <div class="item" v-for="tab in tabs">
+                <div class="item" v-for="tabmovie in tabmovies">
                     <a href="#" class="aimg">
                         <img src="../../static/44.jpg">
                     </a>
-                    <strong> {{tab.movie}}</strong>
-                    <span class="star">{{starStr(tab)}}</span>
-                    <i>4.5</i>
+                    <strong class="strong-block"> {{tabmovie.movie}}</strong>
+                    <span class="star">{{starStr(tabmovie)}}</span>
+                    <i> {{tabmovie.star}}</i>
                 </div>
             </div>
         </div>
     
         <!--站位-->
-        <!--<div style="height:20px;background-color: #eee;width:100%;clear:both">
-                                                        </div>-->
+        <div class="Station">
+        </div>
+        <!--book-more组件-->
+        <book-more>
+            <span slot="fl-h1" class="more-span-txt">展览类</span>
+            <span slot="more-right">
+                <a class="more-right-a">更多&gt;</a>
+            </span>
+        </book-more>
+        <!--banner组件s-->
+        <!--banner-->
+        <div class="banner">
+            <div class="banner-item">
+                <div class="item" v-for="zhangsl in tabzhangs">
+                    <a href="#" class="aimg">
+                        <img src="../../static/44.jpg">
+                    </a>
+                    <strong> {{zhangsl.title}}</strong>
+                    <p class="star text">{{zhangsl.numders}}人想看</p>
+                    <i></i>
+                </div>
+            </div>
+        </div>
+        <!--book-more组件-->
+        <!--站位-->
+        <div class="Station">
+        </div>
+        <!--book-more组件-->
+        <book-more>
+            <span slot="fl-h1" class="more-span-txt">精选推荐</span>
+            <span slot="more-right">
+                <a class="more-right-a">更多&gt;</a>
+            </span>
+        </book-more>
+        <!--使用choicelis组件-->
+        <!--<div class="choicelis-con">
+                                                                                                                                                                                                                                                                                                            <div class="choicelis">
+                                                                                                                                                                                                                                                                                                    
+                                                                                                                                                                                                                                                                                                                <choicelis :model="lade" v-for="lade in labes"></choicelis>
+                                                                                                                                                                                                                                                                                                    
+                                                                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                                                                        </div>-->
+        <!--使用choicelis组件-->
+    
         <!--banner2部分-->
-        <div class="banner2">
+        <div class="banner2" v-for="bag in bags">
             <img src="../../static/bookbgmusic.png">
             <div class="man">
-                <strong class="mantxt">我就是最拉风的最酷超级无敌boy</strong>
+                <strong class="mantxt">{{bag.text}}</strong>
             </div>
         </div>
         <!---->
-        <home-panel :model="jrrd">
+        <!--占位符-->
+        <div class="Station">
+        </div>
+        <!--book-more组件-->
+        <book-more>
+            <span slot="fl-h1" class="more-span-txt">今日推荐影人</span>
+            <span slot="more-right">
+                <a class="more-right-a">更多&gt;</a>
+            </span>
+        </book-more>
+        <!--banner组件s-->
+        <!--banner-->
+        <div class="banner">
+            <div class="banner-item">
+                <div class="item" v-for="todaymovie in todays">
+                    <a href="#" class="aimg">
+                        <img src="../../static/44.jpg">
+                    </a>
+                    <strong> {{todaymovie.name}}</strong>
+                    <p class="star text">{{todaymovie.text}}</p>
+                    <i></i>
+                </div>
+            </div>
+        </div>
+        <!--book-more组件-->
+        <!--占位符-->
+        <div class="Station">
+        </div>
+        <!--book-more组件-->
+        <book-more>
+            <span slot="fl-h1" class="more-span-txt">你可能会感兴趣的</span>
+            <span slot="more-right">
+                <a class="more-right-a">更多&gt;</a>
+            </span>
+        </book-more>
+    
+        <!--hotlikes组件-->
+        <div class="row">
+            <hotlikes :model="item1" class="row-fl" v-for="item1 in items1">
+                <!--<p>{{starStr(labe)}} 3</p>-->
+            </hotlikes>
+        </div>
+        <!--hotlikes组件-->
+        <div class="row">
+            <hotlikes :model="item2" class="row-fl" v-for="item2 in items2">
+                <!--<p>{{starStr(labe)}} 3</p>-->
+            </hotlikes>
+        </div>
+        <!--标题-->
+        <book-more>
+            <!--<span slot="fl-h1" class="more-span-txt">电影热映</span>-->
+            <span slot="more-right">
+                <a class="more-right-a centers" style="margin-right: 43%;right: 0;">查看更多&gt;</a>
+            </span>
+        </book-more>
+        <!--占位符-->
+        <div class="Station">
+        </div>
+        <book-more>
+            <span slot="fl-h1" class="more-span-txt">最受欢迎影评</span>
+            <span slot="more-right">
+                <a class="more-right-a">更多&gt;</a>
+            </span>
+        </book-more>
+        <home-panel :model="cinecism" v-for="cinecism in cinecismlikes">
             <span slot="top"></span>
             <span slot="bottom-left">
-                <router-link to="/diary" class="mhn"> 梅花牛</router-link>
+                <router-link to="/diary" class="cinecism"> {{cinecism.name}}</router-link>
+                &nbsp;
+                <span class="cinecism">评论</span>&nbsp;
+                <span class="cinecism">
+                    《{{cinecism.yingming}}》</span>
             </span>
-            <span slot="bottom-right">×</span>
+            <!--<span slot="bottom-right">×</span>-->
         </home-panel>
         <!--banner-->
         <div class="banner">
@@ -50,7 +165,7 @@
                 </div>
             </div>
         </div>
-        <div class="banner">
+        <div class="banner ">
             <div class="banner-item">
                 <div class="item" v-for="tab in tabs">
                     <a href="#" class="aimg">
@@ -62,93 +177,61 @@
                 </div>
             </div>
         </div>
-        <div class="banner">
-            <div class="banner-item">
-                <div class="item" v-for="tab in tabs">
-                    <a href="#" class="aimg">
-                        <img src="../../static/44.jpg">
-                    </a>
-                    <strong> {{tab.movie}}</strong>
-                    <span class="star">{{starStr(tab)}}</span>
-                    <i>4.5</i>
-                </div>
-            </div>
-        </div>
-        <home-panel :model="jrrd">
-            <span slot="top"></span>
-            <span slot="bottom-left">
-                <router-link to="/diary" class="mhn"> 梅花牛</router-link>
-            </span>
-            <span slot="bottom-right">×</span>
-        </home-panel>
     
     </div>
 </template>
 <script>
+import bookMore from '@/components/bookmore';
 import homePanel from '@/components/homePanel';
-
+// import choicelis from '@/components/choicelis';
+import hotlikes from '@/components/hotlikes';
+import axios from 'axios';
 export default {
     components: {
-        homePanel
-
+        homePanel,
+        bookMore,
+        // choicelis,
+        hotlikes
     },
     data() {
         return {
-            tabs: [{
-                img: "../../static/44.jpg",
-                movie: '变形金刚5',
-                star: 4
-
-            }, {
-                img: "../../static/44.jpg",
-                movie: '变形金刚5',
-                star: 4
-
-            }, {
-                img: "../../static/44.jpg",
-                movie: '变形金刚5',
-                star: 4
-
-            }, {
-                img: "../../static/44.jpg",
-                movie: '变形金刚5',
-                star: 4
-
-            }, {
-                img: "../../static/44.jpg",
-                movie: '变形金刚5',
-                star: 4
-
-            }, {
-                img: "../../static/44.jpg",
-                movie: '变形金刚5',
-                star: 4
-
-            }, {
-                img: "../../static/44.jpg",
-                movie: '变形金刚5',
-                star: 4
-
-            }, {
-                img: "../../static/44.jpg",
-                movie: '变形金刚5',
-                star: 4
-
-            }, {
-                img: "../../static/44.jpg",
-                movie: '变形金刚5',
-                star: 4
-
-            }],
-            jrrd: {
-                title: "我刚割了双眼皮",
-                body: "打法的是否，打发的说法都是，大师法师打发斯蒂芬，大沙发的沙发斯蒂芬……",
-                img: "https://img1.doubanio.com/dae/niffler/niffler/images/7bea8578-3f69-11e7-8261-0242ac11001b.png"
+            items1: [],
+            items2: [],
+            tabmovies: [],
+            tabzhangs: [],
+            tabs: [],
+            bags: [],
+            todays: [],
+            // Hottj: {
+            //     title: "八月展览演出",
+            //     text: '八月最热门的活动都有在这',
+            // },
+            // labes: [{
+            //     title: "八月展览演出",
+            //     text: '八月最热门的活动都有在这',
+            // }, {
+            //     title: "八月展览演出?",
+            //     text: '八月最热门的活动都有在这',
+            // }, {
+            //     title: "八月展览演??出",
+            //     text: '八月最热门的活动都有在这',
+            // }, {
+            //     title: "八月展览演??出",
+            //     text: '八月最热门的活动都有在这',
+            // }],
+            cinecismlikes: [],
+            labe: {
+                img: "../../static/8.jpg",
+                title: '永远的托词',
+                star: 5,
+                text: "最近值得看的"
             }
         }
     },
     computed: {
-
+        aa() {
+            return this.tabs.length;
+        }
     },
     methods: {
         starStr(item) {
@@ -166,12 +249,36 @@ export default {
             if (this.$route.path === tab.path) return { class: "active" };
             else return {};
         }
+    },
+    created() {
+        axios.post("api/bookmovie", { uid: "666" }).then((a) => {
+            // debugger;
+            this.tabmovies = a.data.data;
+            this.tabzhangs = a.data.data1;
+            this.bags = a.data.bag;
+            this.todays = a.data.todays;
+            this.items1 = a.data.youlike01;
+            this.items2 = a.data.youlike02;
+            this.cinecismlikes = a.data.pingying;
+
+        }).catch((error) => {
+
+        })
     }
 
 }
 </script>
 <style>
 /*bookmore组件样式开始*/
+
+.row {
+    padding: 16px;
+    display: flex;
+}
+
+.row .row-fl {
+    float: left;
+}
 
 .tit {
     height: 18px;
@@ -193,7 +300,7 @@ export default {
 }
 
 .banner {
-    /*width: 100%;*/
+
     padding: 10px;
     height: 190px;
     overflow-x: auto;
@@ -201,9 +308,54 @@ export default {
 
 
 
-/*::-webkit-scrollbar {
-    width: 0px
-}*/
+
+
+
+
+
+
+/*影评样式*/
+
+.cinecism {
+    font-size: 12px;
+    color: #9B9B9B;
+    line-height: 1.5em;
+}
+
+.strong-block {
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*.choicelis-con {
+    padding: 16px;
+    overflow-y: hidden;
+    overflow-x: scroll;
+}
+
+
+
+/*----bananer组件----*/
 
 .banner .banner-item {
     width: 10000px;
@@ -212,13 +364,19 @@ export default {
 .banner .item {
     /*background: red;*/
     width: 110px;
-    text-align: center;
+    /*text-align: center;*/
     float: left;
 }
 
 .banner img {
     height: 134px;
 }
+
+.text {
+    font-size: 12px;
+    color: #999;
+}
+
 
 .banner2 {
     height: 190px;
@@ -231,6 +389,11 @@ export default {
 .man {
     margin-left: 20px;
     line-height: 40px;
+}
+
+
+.banner i {
+    font-style: normal
 }
 </style>
 

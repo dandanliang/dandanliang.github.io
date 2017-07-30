@@ -22,5 +22,19 @@ export default {
     padding: 16px;
     display: flex;
 }
+
+.more-span-txt {
+    height: 18px;
+    width: 99%;
+    font-size: 18px;
+}
+
+.more-right-a {
+    position: absolute;
+    right: 0;
+    margin-right: 10px;
+    font-size: 14px;
+    color: rgb(63, 189, 82);
+}
 </style>
 

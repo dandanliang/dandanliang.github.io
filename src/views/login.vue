@@ -31,8 +31,8 @@ export default {
   data() {
     return {
       msg: 'Welcome to Your Vue.js App',
-      phone: '',
-      pwd: ""
+      phone: '13100000000',
+      pwd: "123"
     }
   }, methods: {
     btnSend: function (event) {

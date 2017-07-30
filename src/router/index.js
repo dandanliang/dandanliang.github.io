@@ -27,6 +27,8 @@ import leftbg from '@/components/leftbg'
 import shopbanner from '@/components/shopbanner'
 import tlflex from '@/components/tlflex'
 import scrolls from '@/components/scrollbanner'
+import choicelis from '@/components/choicelis'
+import hotlikes from '@/components/hotlikes'
 Vue.use(Router)
 
 export default new Router({
@@ -141,5 +143,13 @@ export default new Router({
         path: "/scroll",
         name: "scroll",
         component: scroll
+    }, {
+        path: "/choicelis",
+        name: "choicelis",
+        component: choicelis
+    }, {
+        path: "/hotlikes",
+        name: "hotlikes",
+        component: hotlikes
     }]
 })

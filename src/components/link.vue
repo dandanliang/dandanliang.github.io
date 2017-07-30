@@ -60,7 +60,7 @@ export default {
     /*background: yellow;*/
     width: 70px;
     margin-left: 15%;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
 }
 
 

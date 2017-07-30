@@ -16,7 +16,7 @@
             </div>
         </tl-flex>
         <!--站位-->
-        <div style="height:20px;background-color: #eee;width:100%;">
+        <div class="Station">
         </div>
         <!--book-more组件-->
         <book-more>
@@ -25,22 +25,22 @@
                 <a class="more-right-a">更多&gt;</a>
             </span>
         </book-more>
-        <!--banner组件s-->
+        <!--banner组件-->
         <div class="banner">
             <div class="banner-item">
-                <div class="item" v-for="item in items">
+                <div class="item" v-for="hot in hots">
                     <a href="#" class="aimg">
                         <img src="../../static/44.jpg">
                     </a>
-                    <strong> {{item.movie}}</strong>
+                    <strong style="display:block;"> {{hot.title}}</strong>
     
-                    <span class="star times">{{item.times}}</span>
+                    <span class="star times">{{hot.date}}</span>
                     <i class="sp">官方售票</i>
                 </div>
             </div>
         </div>
         <!--站位-->
-        <div style="height:20px;background-color: #eee;width:100%;margin-top: 10px;">
+        <div class="Station">
         </div>
         <!--book-more组件-->
         <book-more>
@@ -52,18 +52,18 @@
         <!--banner组件s-->
         <div class="banner">
             <div class="banner-item">
-                <div class="item" v-for="item in items">
+                <div class="item" v-for="music in yy">
                     <a href="#" class="aimg">
-                        <img src="../../static/44.jpg">
+                        <img :src="music.img">
                     </a>
-                    <strong> {{item.movie}}</strong>
+                    <strong style="display:block;"> {{music.title}}</strong>
     
-                    <span class="star times">{{item.times}}</span>
+                    <span class="star times">{{music.date}}</span>
                     <i class="sp">官方售票</i>
                 </div>
             </div>
         </div>
-        <div style="height:20px;background-color: #eee;width:100%;margin-top: 10px;">
+        <div class="Station">
         </div>
         <!--book-more组件-->
         <book-more>
@@ -88,7 +88,7 @@
         </div>
         <!--book-more组件-->
         <!--站位-->
-        <div style="height:20px;background-color: #eee;width:100%;margin-top: 10px;">
+        <div class="Station">
         </div>
         <book-more>
             <span slot="fl-h1" class="more-span-txt">编辑推荐</span>
@@ -119,7 +119,7 @@
         </div>
         <!--box结束符-->
         <!--站位-->
-        <div style="height:20px;background-color: #eee;width:100%;margin-top: 10px;">
+        <div class="Station">
         </div>
         <!--book-more组件-->
         <book-more>
@@ -144,7 +144,7 @@
         </div>
         <!--book-more组件-->
         <!--站位-->
-        <div style="height:20px;background-color: #eee;width:100%;margin-top: 10px;">
+        <div class="Station">
         </div>
         <!--book-more组件-->
         <book-more>
@@ -176,6 +176,7 @@ import bookMore from '@/components/bookmore';
 import tlFlex from '@/components/tlflex';
 import homePanel from '@/components/homePanel';
 import scrolls from '@/components/scrollbanner';
+import axios from 'axios';
 
 export default {
     components: {
@@ -186,7 +187,39 @@ export default {
     },
     data() {
         return {
+            hots: [],
+            yy: [],
             items: [{
+                img: "../../static/44.jpg",
+                movie: '荣恒经典：奥戴丽.赫本展',
+                times: "2017-06-17",
+
+            }, {
+                img: "../../static/44.jpg",
+                movie: '荣恒经典：奥戴丽.赫本展',
+                times: "2017-06-17",
+
+            }, {
+                img: "../../static/44.jpg",
+                movie: '荣恒经典：奥戴丽.赫本展',
+                times: "2017-06-17",
+
+            }, {
+                img: "../../static/44.jpg",
+                movie: '荣恒经典：奥戴丽.赫本展',
+                times: "2017-06-17",
+
+            }, {
+                img: "../../static/44.jpg",
+                movie: '荣恒经典：奥戴丽.赫本展',
+                times: "2017-06-17",
+
+            }, {
+                img: "../../static/44.jpg",
+                movie: '荣恒经典：奥戴丽.赫本展',
+                times: "2017-06-17",
+
+            }, {
                 img: "../../static/44.jpg",
                 movie: '荣恒经典：奥戴丽.赫本展',
                 times: "2017-06-17",
@@ -236,6 +269,17 @@ export default {
             // this.$router.push({path:tab.path});
             this.$router.push({ path: tab.path });
         }
+    },
+    created() {
+        axios.post("api/city", { uid: "66" }).then((a) => {
+            // debugger;
+            this.hots = a.data.hots;
+            this.yy = a.data.mp3;
+
+
+        }).catch((error) => {
+
+        })
     }
 }
 
@@ -258,7 +302,7 @@ export default {
     height: 180px;
     margin-right: 10px;
     border-radius: 5px;
-    text-align: center;
+    /*text-align: center;*/
 }
 
 .boxs div h3 {
@@ -289,6 +333,24 @@ export default {
 .boxs .box4 {
     background: cadetblue;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
