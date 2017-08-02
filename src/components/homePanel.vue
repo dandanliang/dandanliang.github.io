@@ -35,7 +35,6 @@ export default {
 </script>
 <style scoped>
 .h-panel {
-
     margin-bottom: 20px;
     padding: 10px;
     display: inline-block;
@@ -71,7 +70,6 @@ export default {
 }
 
 .h-panel .body .left {
-    /*float: left;*/
     flex: 3;
 }
 

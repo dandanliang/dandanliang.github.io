@@ -61,12 +61,12 @@
         </book-more>
         <!--使用choicelis组件-->
         <!--<div class="choicelis-con">
-                                                                                                                                                                                                                                                                                                            <div class="choicelis">
-                                                                                                                                                                                                                                                                                                    
-                                                                                                                                                                                                                                                                                                                <choicelis :model="lade" v-for="lade in labes"></choicelis>
-                                                                                                                                                                                                                                                                                                    
-                                                                                                                                                                                                                                                                                                            </div>
-                                                                                                                                                                                                                                                                                                        </div>-->
+                                                                                                                                                                                                                                                                                                                        <div class="choicelis">
+                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                            <choicelis :model="lade" v-for="lade in labes"></choicelis>
+                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                                                                    </div>-->
         <!--使用choicelis组件-->
     
         <!--banner2部分-->
@@ -153,31 +153,7 @@
             <!--<span slot="bottom-right">×</span>-->
         </home-panel>
         <!--banner-->
-        <div class="banner">
-            <div class="banner-item">
-                <div class="item" v-for="tab in tabs">
-                    <a href="#" class="aimg">
-                        <img src="../../static/44.jpg">
-                    </a>
-                    <strong> {{tab.movie}}</strong>
-                    <span class="star">{{starStr(tab)}}</span>
-                    <i>4.5</i>
-                </div>
-            </div>
-        </div>
-        <div class="banner ">
-            <div class="banner-item">
-                <div class="item" v-for="tab in tabs">
-                    <a href="#" class="aimg">
-                        <img src="../../static/44.jpg">
-                    </a>
-                    <strong> {{tab.movie}}</strong>
-                    <span class="star">{{starStr(tab)}}</span>
-                    <i>4.5</i>
-                </div>
-            </div>
-        </div>
-    
+        <div style="margin-top:50px;"></div>
     </div>
 </template>
 <script>
@@ -310,10 +286,6 @@ export default {
 
 
 
-
-
-
-
 /*影评样式*/
 
 .cinecism {
@@ -326,32 +298,6 @@ export default {
     display: block;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*.choicelis-con {
-    padding: 16px;
-    overflow-y: hidden;
-    overflow-x: scroll;
-}
 
 
 

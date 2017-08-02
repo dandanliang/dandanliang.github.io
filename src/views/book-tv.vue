@@ -210,7 +210,7 @@ export default {
     line-height: 26px;
     border-radius: 20px;
     color: rgb(63, 189, 82);
-    padding: 0 20px;
+    padding: 0 15px;
     margin-right: 10px;
     flex: 1;
     margin-bottom: 20px;
@@ -296,6 +296,7 @@ export default {
     color: #a7a7a7;
     line-height: 22px;
 }
+
 
 
 

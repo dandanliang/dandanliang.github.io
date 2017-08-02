@@ -262,9 +262,6 @@ export default {
     color: #000;
 }
 
-
-
-
 .Trend-bottom {
     border-bottom: 1px solid #f0f1ec;
     padding: 16px;
@@ -272,15 +269,18 @@ export default {
 }
 
 
+
 .Trend-bottom .Trend {
     display: inline-block;
-    border: 1px solid rgb(63, 189, 82);
+    border: 1px solid #3fbd52;
     height: 26px;
     line-height: 26px;
     border-radius: 20px;
-    color: rgb(63, 189, 82);
-    padding: 0 20px;
+    color: #3fbd52;
+    padding: 0 10px;
     margin-right: 10px;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
     flex: 1;
     margin-bottom: 20px;
 }
@@ -288,20 +288,6 @@ export default {
 
 
 
-
-
-
-
-
-
-/* .item i {
-    font-style: normal;
-    color: red;
-}
-
-.item .blk {
-    display: block;
-} */
 
 
 /*=======*/
@@ -317,32 +303,10 @@ export default {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*====================*/
 
 .banner {
-
     padding: 10px;
-    /*height: 240px;*/
     overflow-x: scroll;
     overflow-y: hidden;
 }

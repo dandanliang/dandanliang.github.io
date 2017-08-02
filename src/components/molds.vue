@@ -20,7 +20,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .Trend-bottom {
     border-bottom: 1px solid #f0f1ec;
     padding: 16px;
@@ -35,7 +35,7 @@ export default {
     line-height: 26px;
     border-radius: 20px;
     color: rgb(63, 189, 82);
-    padding: 0 20px;
+    padding: 0 15px;
     margin-right: 10px;
     flex: 1;
     margin-bottom: 20px;
