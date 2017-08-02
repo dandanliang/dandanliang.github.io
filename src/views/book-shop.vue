@@ -30,10 +30,10 @@
         </book-more>
     
         <!--使用leftbg组件-->
-        <left-bg :model="shop">
+        <left-bg :model="shops" v-for="shops in news">
             <span slot="top" style="height:0;"></span>
             <span slot="bottom-left">
-                <span class="cart-money">&yen;123</span>
+                <span class="cart-money">&yen;{{shops.money}}</span>
                 <del class="cart-dels">&yen;149</del>
             </span>
             <span slot="bottom-right">×</span>
@@ -50,12 +50,12 @@
             </span>
         </book-more>
         <!--使用shopbanner';-->
-        <shop-banner :model="shops">
+        <shop-banner :model="douban" v-for="douban in db">
             <div slot="bg-img">
-                <img src="../../static/bookbgmusic.png" style="width: 100%;" />
+                <img :src="douban.img" style="width: 100%;" />
             </div>
-            <h2 slot="slot-h1" class="slot-title">#我的豆瓣收藏夹有什么#</h2>
-            <p slot="slot-txt" class="slot-txt">晒出你的豆瓣收藏夹，让我们看看你走过的世界吧。</p>
+            <h2 slot="slot-h1" class="slot-title">#{{douban.title}}#</h2>
+            <p slot="slot-txt" class="slot-txt">{{douban.text}}</p>
         </shop-banner>
         <shop-banner :model="shops">
             <div slot="bg-img">
@@ -64,12 +64,14 @@
             <h2 slot="slot-h1" class="slot-title">#我的豆瓣收藏夹有什么#</h2>
             <p slot="slot-txt" class="slot-txt">晒出你的豆瓣收藏夹，让我们看看你走过的世界吧。</p>
         </shop-banner>
+        <div style="margin-top:50px;"></div>
     </div>
 </template>
 <script>
 import bookMore from '@/components/bookmore';
 import leftBg from '@/components/leftbg';
 import shopBanner from '@/components/shopbanner';
+import axios from 'axios';
 
 export default {
     components: {
@@ -79,6 +81,8 @@ export default {
     },
     data() {
         return {
+            news: [],
+            db: [],
             shop: {
                 title: "豆瓣帆布包+早餐系列",
                 body: "简约版型+多层版型+食欲满满，早餐图案=你不可或缺的搭配好物",
@@ -91,7 +95,19 @@ export default {
             }]
 
         }
+    },
+    created() {
+        axios.post("api/market", { uid: "66" }).then((a) => {
+            // debugger;
+            this.news = a.data.news;
+            this.db = a.data.db;
+
+
+        }).catch((error) => {
+
+        })
     }
+
 }
 </script>
 
@@ -163,6 +179,20 @@ export default {
 .cart-dels {
     font-size: 16px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

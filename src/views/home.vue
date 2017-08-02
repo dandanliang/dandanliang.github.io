@@ -5,52 +5,61 @@
         <header1 class="home-header">
             <input type="search" name="search" class="search" value="" placeholder="影视 图书 唱片 小组 舞台剧等">
         </header1>
-        <home-panel :model="jrrd">
-            <span slot="top">今日热点</span>
-            <span slot="bottom-left">
-                <div class="round"></div>
-                <router-link to="/diary" class="mhn">
-                    <p style="font-size:18px; color: #e3e3e3;margin:0;">梅花牛</p>
-                </router-link>
-            </span>
-            <span slot="bottom-right" class="bgz">×</span>
-        </home-panel>
+        <router-link to="/diary">
+            <home-panel :model="jrrd">
+                <span slot="top">今日热点</span>
+                <span slot="bottom-left">
+                    <div class="round"></div>
+                    <p class="names">梅花牛</p>
+                </span>
+                <span slot="bottom-right" class="bgz">×</span>
+            </home-panel>
+        </router-link>
         <div style="clear: both;"></div>
-        <!--kind组件-->
+        <!--站位-->
+        <div class="Station">
+        </div>
+        <!--kind组件.豆瓣时间-->
         <kind></kind>
+        <!--站位-->
+        <div class="Station">
+        </div>
         <!--banner部分-->
         <div class="conent">
-            <ul class="table-view">
-                <li class="table-view-cell " v-for="a in conent ">
-                    <a href="javascript:;">
-                        <div class="body">
-                            <strong>{{a.title}}</strong>
-                            <!--年轻人-->
-                            <div class='ellipsis'>{{a.body}}</div>
-                        </div>
-                        <div class="img">
-                            <img class="imgs" :src="a.imgsrc">
-                        </div>
-                        <div class="name">
-                            <span>作者：{{a.author}}</span>
-                            <a>X</a>
-                        </div>
-                    </a>
-                </li>
-            </ul>
+            <router-link to="/diary">
+                <ul class="table-view">
+                    <li class="table-view-cell " v-for="a in conent ">
+                        <a href="javascript:;">
+                            <div class="body">
+                                <p>豆瓣时间</p>
+                                <strong>{{a.title}}</strong>
+                                <!--年轻人-->
+                                <div class='ellipsis'>{{a.body}}</div>
+                            </div>
+                            <div class="img">
+                                <img class="imgs" :src="a.imgsrc">
+                            </div>
+                            <div class="name">
+                                <span>作者：{{a.author}}</span>
+                                <a></a>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </router-link>
         </div>
+    
         <home-panel :model="jrrd">
             <span slot="top">今日热点</span>
             <span slot="bottom-left">
                 <div class="round"></div>
-                <router-link to="/diary" class="mhn">
-                    <p style="font-size:18px; color: #e3e3e3;margin:0;">梅花牛</p>
-                </router-link>
+                <p class="names">梅花牛</p>
             </span>
             <span slot="bottom-right" class="bgz">×</span>
         </home-panel>
         <!--footer-->
         <footer2></footer2>
+        <div style="margin-top:50px;"></div>
     </div>
     <!--隔栏-->
 </template>
@@ -125,7 +134,7 @@ export default {
 }
 
 .table-view-cell {
-    border-top: 1px solid #ea6f5a;
+    /* border-top: 1px solid #ea6f5a; */
     padding: 10px;
 }
 
@@ -170,7 +179,8 @@ export default {
 
 .name span {
     margin-left: 10px;
-    color: #e3e3e3;
+    color: #000;
+    font-size: 13px;
 }
 
 .name a,
@@ -191,12 +201,18 @@ export default {
 }
 
 
-.bottom-left .mhn {
+.bottom-left {
     position: absolute;
     font-size: 16px;
     left: 52px;
     top: -51px;
     color: #000;
+}
+
+.names {
+    font-size: 18px;
+    color: #000;
+    margin: 0;
 }
 </style>
 

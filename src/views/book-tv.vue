@@ -99,30 +99,49 @@
             </span>
         </book-more>
         <!--组件-->
-        <hotlikes :model="labe"></hotlikes>
-        <hotlikes :model="labe"></hotlikes>
+        <!--hotlikes组件-->
+        <div class="row">
+            <hotlikes :model="item1" class="row-fl" v-for="item1 in items1">
+                <!--<p>{{starStr(labe)}} 3</p>-->
+            </hotlikes>
+        </div>
+        <!--hotlikes组件-->
+        <div class="row">
+            <hotlikes :model="item2" class="row-fl" v-for="item2 in items2">
+                <!--<p>{{starStr(labe)}} 3</p>-->
+            </hotlikes>
+        </div>
         <book-more>
             <span>最近期待看的国产电视剧</span>
         </book-more>
-        <home-panel :model="dsj">
-            <span slot="top"></span>
-            <span slot="bottom-left">
-                <router-link to="/">详情 </router-link>
+        <book-more>
+            <span slot="fl-h1" class="more-span-txt"> 选择电视剧类型</span>
+            <span slot="more-right">
+                <a class="more-right-a">更多&gt;</a>
             </span>
-            <span slot="bottom-right">×</span>
-        </home-panel>
+        </book-more>
+        <lian-jie :model="liuxing" v-for="liuxing in mold">
+            <span slot="slot-name1" class="colors">{{liuxing.name}}</span>
+            <span slot="slot-name2" class="colors">{{liuxing.name}}</span>
+            <span slot="slot-name3" class="colors">{{liuxing.name}}</span>
+            <span slot="slot-name4" class="colors">{{liuxing.name}}</span>
+        </lian-jie>
+    
+        <div style="margin-top:60px;"></div>
     </div>
 </template>
 <script>
 import homePanel from '@/components/homePanel';
 import bookMore from '@/components/bookmore';
 import hotlikes from '@/components/hotlikes';
+import lianJie from '@/components/molds';
 import axios from "axios";
 export default {
     components: {
         homePanel,
         bookMore,
-        hotlikes
+        hotlikes,
+        lianJie
 
     },
     data() {
@@ -131,17 +150,28 @@ export default {
             recents: [],
             ustvs: [],
             tgs: [],
+            items1: [],
+            items2: [],
+            panel: [],
             labe: {
                 img: "../../static/8.jpg",
                 title: '永远的托词',
                 star: 5,
                 text: "最近值得看的"
             },
-            dsj: {
-                title: "醉玲珑",
-                body: "打法的是否，打发的说法都是，大师法师打发斯蒂芬，大沙发的沙发斯蒂芬……",
-                img: "../../static/01.jpg"
-            }
+            mold: [{
+                name: "喜剧",
+                path: "/city"
+            }, {
+                name: "美剧",
+                path: "/city"
+            }, {
+                name: "歌剧",
+                path: "/city"
+            }, {
+                name: "青春剧",
+                path: "/city"
+            }]
 
 
         }
@@ -162,6 +192,9 @@ export default {
             this.recents = n.data.recents;
             this.ustvs = n.data.ustvs;
             this.tgs = n.data.tgs;
+            this.items1 = n.data.items1;
+            this.items2 = n.data.items2;
+            this.panel = n.data.panels;
         }).catch((error) => {
 
         })
@@ -170,6 +203,19 @@ export default {
 }
 </script>
 <style scoped>
+.colors {
+    display: inline-block;
+    border: 1px solid rgb(63, 189, 82);
+    height: 26px;
+    line-height: 26px;
+    border-radius: 20px;
+    color: rgb(63, 189, 82);
+    padding: 0 20px;
+    margin-right: 10px;
+    flex: 1;
+    margin-bottom: 20px;
+}
+
 .more-span-txt {
     height: 18px;
     width: 99%;
@@ -259,12 +305,45 @@ export default {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*============more-span==========*/
 
 .more-span {
     height: 18px;
     width: 99%;
     font-size: 18px;
+}
+
+
+.row {
+    padding: 16px;
+    display: flex;
+}
+
+.row .row-fl {
+    float: left;
 }
 </style>
 

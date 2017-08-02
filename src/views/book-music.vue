@@ -12,15 +12,15 @@
         <!--banner组件s-->
         <div class="banner">
             <div class="banner-item">
-                <div class="item" v-for="item in items">
+                <div class="item" v-for="hot in hots">
                     <a href="#" class="aimg">
                         <img src="../../static/8.jpg" style="height:110px;">
                     </a>
-                    <strong> {{item.title}}</strong>
-                    <p class="slot-txt">{{item.name}}</p>
+                    <strong> {{hot.title}}</strong>
+                    <p class="slot-txt">{{hot.names}}</p>
     
-                    <span class="star times">{{Getstar(item)}}</span>
-                    <i>9</i>
+                    <span class="star times">{{starStr(hot)}}</span>
+                    <i>{{hot.star}}</i>
                 </div>
             </div>
         </div>
@@ -36,15 +36,15 @@
         <!--banner组件s-->
         <div class="banner">
             <div class="banner-item">
-                <div class="item" v-for="item in items">
+                <div class="item" v-for="us in usa">
                     <a href="#" class="aimg">
                         <img src="../../static/8.jpg" style="height:110px;">
                     </a>
-                    <strong> {{item.title}}</strong>
-                    <p class="slot-txt">{{item.name}}</p>
+                    <strong> {{us.title}}</strong>
+                    <p class="slot-txt">{{us.name}}</p>
     
-                    <span class="star times">{{Getstar(item)}}</span>
-                    <i>9</i>
+                    <span class="star times">{{us.numders}}人想看</span>
+                    <i></i>
                 </div>
             </div>
         </div>
@@ -60,15 +60,18 @@
         <!--banner组件s-->
         <div class="banner">
             <div class="banner-item">
-                <div class="item" v-for="item in items">
+                <div class="item" v-for="hot2 in hots2">
                     <a href="#" class="aimg">
                         <img src="../../static/8.jpg" style="height:110px;">
                     </a>
-                    <strong> {{item.title}}</strong>
-                    <p class="slot-txt">{{item.name}}</p>
+                    <strong> {{hot2.title}}</strong>
+                    <p class="slot-txt">{{hot2.name}}</p>
     
-                    <span class="star times">{{Getstar(item)}}</span>
-                    <i>9</i>
+                    <span class="star times blk">{{starStr(hot2)}}
+                        <i>{{hot2.star}}</i>
+                    </span>
+    
+                    <span class="looke">{{hot2.text}}人想看</span>
                 </div>
             </div>
         </div>
@@ -85,11 +88,11 @@
         </book-more>
     
         <!--home-panel组件-->
-        <home-panel :model="music">
+        <home-panel :model="music" v-for="music in yinyue">
             <span slot="top" style="height:0;" class="titles"></span>
             <span slot="bottom-left">
                 <div class="round"></div>
-                <p class="music-name">作者：匿名</p>
+                <p class="music-name">作者：{{music.name}}</p>
             </span>
             <span slot="bottom-right" class="bgz"></span>
         </home-panel>
@@ -105,14 +108,14 @@
         </book-more>
         <div class="banner">
             <div class="banner-item">
-                <div class="item" v-for="item in items">
+                <div class="item" v-for="live in lives">
                     <a href="#" class="aimg">
                         <img src="../../static/8.jpg" style="height:120px;">
                     </a>
-                    <strong> {{item.title}}</strong>
-                    <p class="slot-txt">{{item.name}}</p>
-                    <span class="star times">{{Getstar(item)}}</span>
-                    <i>9</i>
+                    <strong> {{live.title}}</strong>
+                    <p class="slot-txt">{{live.names}}</p>
+                    <span class="star times">{{starStr(live)}}</span>
+                    <i>{{live.star}}</i>
                 </div>
             </div>
         </div>
@@ -128,21 +131,18 @@
         <!--breed组件选项-->
     
         <div class="Trend-bottom">
-            <div class="ttt">
-                <span class="Trend">流行</span>
-                <span class="Trend">流行</span>
-                <span class="Trend">流行</span>
-                <span class="Trend">流行</span>
+            <div class="ttt" v-for="item in items">
+                <span class="Trend">{{item.name}}</span>
+    
             </div>
         </div>
-        <div class="Trend-bottom" style="border:none;">
-            <div class="ttt">
-                <span class="Trend">流行</span>
-                <span class="Trend">流行</span>
-                <span class="Trend">流行</span>
-                <span class="Trend">流行</span>
+        <div class="Trend-bottom">
+            <div class="ttt" v-for="item2 in items2">
+                <span class="Trend">{{item2.name}}</span>
+    
             </div>
         </div>
+    
         <!--book-more组件-->
         <book-more>
             <span slot="fl-h1" class="more-span-txt">发现好音乐
@@ -158,7 +158,7 @@
 <script>
 import bookMore from '@/components/bookmore';
 import homePanel from '@/components/homePanel';
-
+import axios from 'axios';
 export default {
     components: {
         bookMore,
@@ -166,95 +166,68 @@ export default {
 
     }, data() {
         return {
+            hots: [],
+            usa: [],
+            hots2: [],
+            music: [],
+            yinyue: [],
+            lives: [],
             items: [{
-                img: "../../static/8.jpg",
-                title: "耐是异乡人",
-                name: '李剑青',
-                star: 5,
-
+                name: "民谣",
+                path: "/city"
             }, {
-                img: "../../static/8.jpg",
-                title: "异乡人",
-                name: '李剑青',
-                star: 4,
-
+                name: "流行",
+                path: "/city"
             }, {
-                img: "../../static/8.jpg",
-                title: "异乡人",
-                name: '李剑青',
-                star: 6,
-
+                name: "安静",
+                path: "/city"
             }, {
-                img: "../../static/8.jpg",
-                title: "异乡人",
-                name: '李剑青',
-                star: 3,
-
-            }, {
-                img: "../../static/8.jpg",
-                title: "异乡人",
-                name: '李剑青',
-                star: 3,
-
-            }, {
-                img: "../../static/8.jpg",
-                title: "异乡人",
-                name: '李剑青',
-                star: 3,
-
-            }, {
-                img: "../../static/8.jpg",
-                title: "异乡人",
-                name: '李剑青',
-                star: 3,
-
-            }, {
-                img: "../../static/8.jpg",
-                title: "异乡人",
-                name: '李剑青',
-                star: 3,
-
-            }, {
-                img: "../../static/8.jpg",
-                title: "异乡人",
-                name: '李剑青',
-                star: 3,
-
-            }, {
-                img: "../../static/8.jpg",
-                title: "异乡人",
-                name: '李剑青',
-                star: 3,
-
-            }, {
-                img: "../../static/8.jpg",
-                title: "异乡人",
-                name: '李剑青',
-                star: 3,
-
-            }, {
-                img: "../../static/8.jpg",
-                title: "异乡人",
-                name: '李剑青',
-                star: 3,
-
+                name: "摇滚",
+                path: "/city"
             }],
-            music: {
-                title: "莫西子诗：从走出家门那刻起，我就开始寻找归宿了",
-                body: "莫西子诗前阵子去了趟广西，正好赶上当地一个小节日，就跟着朋友凑了凑热闹。白天听过领导讲话看完。。。",
-                img: "https://img1.doubanio.com/dae/niffler/niffler/images/7bea8578-3f69-11e7-8261-0242ac11001b.png"
-            }
+            items2: [{
+                name: "竟电",
+                path: "/city"
+            }, {
+                name: "流行2",
+                path: "/city"
+            }, {
+                name: "安静2",
+                path: "/city"
+            }, {
+                name: "摇滚3  ",
+                path: "/city"
+            }]
+
+            // music: {
+            //     title: "莫西子诗：从走出家门那刻起，我就开始寻找归宿了",
+            //     body: "莫西子诗前阵子去了趟广西，正好赶上当地一个小节日，就跟着朋友凑了凑热闹。白天听过领导讲话看完。。。",
+            //     img: "https://img1.doubanio.com/dae/niffler/niffler/images/7bea8578-3f69-11e7-8261-0242ac11001b.png"
+            // }
         }
 
     },
     methods: {
-        Getstar(item) {
+        starStr(item) {
             let result = [];
             for (let i = 0; i < item.star; i++) {
                 result.push("☆");
             }
             return result.join("");
         }
+    },
+    created() {
+        axios.post("api/music", { uid: "66" }).then((a) => {
+            // debugger;
+            this.hots = a.data.china;
+            this.usa = a.data.usa;
+            this.hots2 = a.data.hots2;
+            this.yinyue = a.data.yinyue;
+            this.lives = a.data.lives;
+
+        }).catch((error) => {
+
+        })
     }
 
 }
@@ -321,45 +294,14 @@ export default {
 
 
 
+/* .item i {
+    font-style: normal;
+    color: red;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.item .blk {
+    display: block;
+} */
 
 
 /*=======*/
@@ -368,26 +310,6 @@ export default {
     font-size: 15px;
     color: #999;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -436,13 +358,13 @@ export default {
 }
 
 .banner .item {
-
     width: 123px;
     /*text-align: center;*/
     float: left;
 }
 
-.banner .times {
+.banner .times,
+time .look {
     font-size: 15px;
     color: #999;
 }

@@ -24,7 +24,7 @@ export default {
 </script>
 
 <style>
-/*.box {
+.box {
     padding: 16px;
     overflow-y: hidden;
     overflow-x: scroll;
@@ -32,22 +32,15 @@ export default {
 
 .boxs {
     width: 760px;
+
     overflow: hidden;
-}*/
-
-.box {
-    float: left;
-}
-
-
-.boxs {
-    float: left;
 }
 
 .boxs div {
-    /*width: 180px;*/
+    float: left;
+    width: 180px;
     height: 180px;
-    margin-right: 26px;
+    margin-right: 10px;
     border-radius: 5px;
     text-align: center;
 }
@@ -55,7 +48,7 @@ export default {
 .boxs div h3 {
 
     color: #fff;
-    /*margin-top: 60px;*/
+    margin-top: 60px;
 }
 
 .boxs div .txt {

@@ -171,7 +171,7 @@
                 </div>
             </div>
         </div>
-    
+        <div style="margin-top:50px;"></div>
     </div>
 </template>
 <script>
@@ -343,12 +343,14 @@ export default {
 
 
 
+
 /*----bananer组件----*/
 
 .text {
     font-size: 12px;
     color: #999;
 }
+
 
 
 
@@ -449,6 +451,7 @@ export default {
     padding-top: 10px;
     margin-left: 20px;
 }
+
 
 
 

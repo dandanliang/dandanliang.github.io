@@ -32,7 +32,7 @@
                     <a href="#" class="aimg">
                         <img src="../../static/44.jpg">
                     </a>
-                    <strong style="display:block;"> {{hot.title}}</strong>
+                    <strong> {{hot.title}}</strong>
     
                     <span class="star times">{{hot.date}}</span>
                     <i class="sp">官方售票</i>
@@ -56,7 +56,7 @@
                     <a href="#" class="aimg">
                         <img :src="music.img">
                     </a>
-                    <strong style="display:block;"> {{music.title}}</strong>
+                    <strong> {{music.title}}</strong>
     
                     <span class="star times">{{music.date}}</span>
                     <i class="sp">官方售票</i>
@@ -75,13 +75,13 @@
         <!--banner组件s-->
         <div class="banner" style="bottom:100px;">
             <div class="banner-item">
-                <div class="item" v-for="item in items">
+                <div class="item" v-for="motion in motions">
                     <a href="#" class="aimg">
                         <img src="../../static/44.jpg">
                     </a>
-                    <strong> {{item.movie}}</strong>
+                    <strong> {{motion.title}}</strong>
     
-                    <span class="star times">{{item.times}}</span>
+                    <span class="star times">{{motion.times}}</span>
                     <i class="sp">官方售票</i>
                 </div>
             </div>
@@ -98,20 +98,8 @@
         </book-more>
         <!--box开始符-->
         <div class="box">
-            <div class="boxs" v-for="option in options">
-                <div class="box1">
-                    <h3>{{option.title}}</h3>
-                    <p class="txt">{{option.text}}</p>
-                </div>
-                <div class="box2">
-                    <h3>{{option.title}}</h3>
-                    <p class="txt">{{option.text}}</p>
-                </div>
-                <div class="box3">
-                    <h3>{{option.title}}</h3>
-                    <p class="txt">{{option.text}}</p>
-                </div>
-                <div class="box4">
+            <div class="boxs">
+                <div class="box1" v-for="option in options">
                     <h3>{{option.title}}</h3>
                     <p class="txt">{{option.text}}</p>
                 </div>
@@ -131,13 +119,13 @@
         <!--banner组件s-->
         <div class="banner" style="bottom:100px;">
             <div class="banner-item">
-                <div class="item" v-for="item in items">
+                <div class="item" v-for="exhibit in exhibits">
                     <a href="#" class="aimg">
                         <img src="../../static/44.jpg">
                     </a>
-                    <strong> {{item.movie}}</strong>
+                    <strong> {{exhibit.title}}</strong>
     
-                    <span class="star times">{{item.times}}</span>
+                    <span class="star times">{{exhibit.times}}</span>
                     <i></i>
                 </div>
             </div>
@@ -156,13 +144,13 @@
         <!--banner组件s-->
         <div class="banner" style="bottom:100px;">
             <div class="banner-item">
-                <div class="item" v-for="item in items">
+                <div class="item" v-for="tour in tours">
                     <a href="#" class="aimg">
-                        <img src="../../static/44.jpg">
+                        <img :src="tour.img">
                     </a>
-                    <strong> {{item.movie}}</strong>
+                    <strong> {{tour.title}}</strong>
     
-                    <span class="star times">{{item.times}}</span>
+                    <span class="star times">{{tour.times}}</span>
                     <i></i>
                 </div>
             </div>
@@ -189,68 +177,10 @@ export default {
         return {
             hots: [],
             yy: [],
-            items: [{
-                img: "../../static/44.jpg",
-                movie: '荣恒经典：奥戴丽.赫本展',
-                times: "2017-06-17",
-
-            }, {
-                img: "../../static/44.jpg",
-                movie: '荣恒经典：奥戴丽.赫本展',
-                times: "2017-06-17",
-
-            }, {
-                img: "../../static/44.jpg",
-                movie: '荣恒经典：奥戴丽.赫本展',
-                times: "2017-06-17",
-
-            }, {
-                img: "../../static/44.jpg",
-                movie: '荣恒经典：奥戴丽.赫本展',
-                times: "2017-06-17",
-
-            }, {
-                img: "../../static/44.jpg",
-                movie: '荣恒经典：奥戴丽.赫本展',
-                times: "2017-06-17",
-
-            }, {
-                img: "../../static/44.jpg",
-                movie: '荣恒经典：奥戴丽.赫本展',
-                times: "2017-06-17",
-
-            }, {
-                img: "../../static/44.jpg",
-                movie: '荣恒经典：奥戴丽.赫本展',
-                times: "2017-06-17",
-
-            }, {
-                img: "../../static/44.jpg",
-                movie: '荣恒经典：奥戴丽.赫本展',
-                times: "2017-06-17",
-
-            }, {
-                img: "../../static/44.jpg",
-                movie: '荣恒经典：奥戴丽.赫本展',
-                times: "2017-06-17",
-
-            }, {
-                img: "../../static/44.jpg",
-                movie: '荣恒经典：奥戴丽.赫本展',
-                times: "2017-06-17",
-
-            }, {
-                img: "../../static/44.jpg",
-                movie: '荣恒经典：奥戴丽.赫本展',
-                times: "2017-06-17",
-
-            }],
-            options: [{
-                title: "八月展览演出",
-                text: '八月最热门的活动都有在这',
-
-
-            }]
+            exhibits: [],
+            options: [],
+            tours: [],
+            motions: []
         }
 
     },
@@ -275,6 +205,10 @@ export default {
             // debugger;
             this.hots = a.data.hots;
             this.yy = a.data.mp3;
+            this.options = a.data.yuanjiao;
+            this.exhibits = a.data.shows;
+            this.tours = a.data.tours;
+            this.motions = a.data.motions;
 
 
         }).catch((error) => {
@@ -302,7 +236,8 @@ export default {
     height: 180px;
     margin-right: 10px;
     border-radius: 5px;
-    /*text-align: center;*/
+    text-align: center;
+    background-color: blue;
 }
 
 .boxs div h3 {
@@ -318,50 +253,9 @@ export default {
     color: #999;
 }
 
-.boxs .box1 {
-    background: red;
+.item strong {
+    display: block;
 }
-
-.boxs .box2 {
-    background: blue;
-}
-
-.boxs .box3 {
-    background: yellowgreen;
-}
-
-.boxs .box4 {
-    background: cadetblue;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

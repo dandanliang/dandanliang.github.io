@@ -7,8 +7,8 @@
     
         <!--bg开始-->
         <div class="bg">
-            <div class="bg-auto">
-                <h3>6666666个有趣小组</h3>
+            <div class="bg-auto" v-for="renshu in numders">
+                <h3>{{renshu.numders}}个有趣小组</h3>
                 <p>立即选择加入吧</p>
             </div>
             <a class="txt">根据小组推荐</a>
@@ -99,7 +99,6 @@
                     <div class="con-r-tab-r">
                         <a class="body ">{{item.gzcounts}}人</a>
                         <a class="icon">
-    
                         </a>
                     </div>
                 </div>
@@ -109,6 +108,7 @@
         <links></links>
         <!--使用footer组件-->
         <footer2></footer2>
+        <div style="margin-top:50px;"></div>
     </div>
 </template>
 <script>
@@ -128,14 +128,16 @@ export default {
     data() {
         return {
             papers: [],
-            items: []
+            items: [],
+            numders: [],
 
         }
     },
     created() {
         axios.post("api/group", { uid: "123" }).then((a) => {
-            // debugger;
             this.papers = a.data.data;
+            // debugger;
+            this.numders = a.data.group1;
         }).catch((e) => {
 
         })
@@ -196,6 +198,19 @@ a.txt {
 .group {
     position: relative;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -361,6 +376,19 @@ body {
     position: absolute;
     right: 25px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

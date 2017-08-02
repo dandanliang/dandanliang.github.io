@@ -15,7 +15,9 @@ li {
   list-style: none;
 }
 
-
+i {
+  font-style: normal;
+}
 
 
 /*-----------占位符------*/
@@ -31,6 +33,8 @@ a {
   width: 100%;
   margin-top: 10px;
 }
+
+
 
 #app {
   /*font-family: 'Avenir', Helvetica, Arial, sans-serif;

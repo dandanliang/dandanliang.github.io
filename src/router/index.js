@@ -29,6 +29,7 @@ import tlflex from '@/components/tlflex'
 import scrolls from '@/components/scrollbanner'
 import choicelis from '@/components/choicelis'
 import hotlikes from '@/components/hotlikes'
+import molds from '@/components/molds'
 Vue.use(Router)
 
 export default new Router({
@@ -151,5 +152,9 @@ export default new Router({
         path: "/hotlikes",
         name: "hotlikes",
         component: hotlikes
+    }, {
+        path: "/molds",
+        name: "molds",
+        component: molds
     }]
 })

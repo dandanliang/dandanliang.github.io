@@ -6,7 +6,7 @@
     
         </header1>
         <!--con部分-->
-        <div class="con" v-for="(index,paper) in papers">
+        <div class="con" v-for="paper in papers">
             <div class="con-l">
                 <div class="con-l-img" :style="computedImg(paper.url)"></div>
             </div>
@@ -33,7 +33,7 @@
         <links></links>
         <!--使用footer组件-->
         <footer2></footer2>
-    
+        <div style="margin-top:130px;"></div>
     </div>
 </template>
 <<script>
