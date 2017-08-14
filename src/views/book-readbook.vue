@@ -3,6 +3,7 @@
         <!--占位符-->
         <div class="Station">
         </div>
+        <load v-if="fadein===1">{{fadeinmsg}}</load>
         <!--标题-->
         <book-more>
             <span slot="fl-h1" class="more-span-txt">新书快递</span>
@@ -178,6 +179,7 @@
 import bookMore from '@/components/bookmore';
 import homePanel from '@/components/homePanel';
 import choicelis from '@/components/choicelis';
+import load from '@/components/loading';
 // import hotlikes from '@/components/hotlikes';
 import axios from 'axios';
 export default {
@@ -185,10 +187,13 @@ export default {
         homePanel,
         bookMore,
         choicelis,
-        // hotlikes
+        load
+
     },
     data() {
         return {
+            fadein: 0,
+            fadeinmsg: "数据在加载中……",
             newbooks: [],
             zhaomu: [],
             xgbooks: [],
@@ -197,12 +202,6 @@ export default {
             tszixun: [],
             xians: [],
             sellings: [],
-
-            // Hottj: {
-            //     title: "八月展览演出",
-            //     text: '八月最热门的活动都有在这',
-            // },
-
             labe: {
                 img: "../../static/8.jpg",
                 title: '永远的托词',
@@ -234,16 +233,22 @@ export default {
         }
     },
     created() {
+        this.fadein = 1;
         axios.post("api/read", { uid: "555" }).then((n) => {
-            this.newbooks = n.data.newbooks;
-            this.zhaomu = n.data.zhaomu;
-            this.xgbooks = n.data.xgbooks;
-            this.fxgbooks = n.data.fxgbooks;
-            this.sudian = n.data.sudian;
-            // debugger;
-            this.tszixun = n.data.tszixun;
-            this.xians = n.data.xians;
-            this.sellings = n.data.sellings;
+            var self = this;
+            setTimeout(function () {
+                self.fadein = 0;
+                self.newbooks = n.data.newbooks;
+                self.zhaomu = n.data.zhaomu;
+                self.xgbooks = n.data.xgbooks;
+                self.fxgbooks = n.data.fxgbooks;
+                self.sudian = n.data.sudian;
+                // debugger;
+                self.tszixun = n.data.tszixun;
+                self.xians = n.data.xians;
+                self.sellings = n.data.sellings;
+            }, 1000);
+
         }).catch((error) => {
 
         })
@@ -344,6 +349,18 @@ export default {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 /*----bananer组件----*/
 
 .text {
@@ -352,78 +369,6 @@ export default {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*::-webkit-scrollbar {
-    width: 0px
-}*/
 
 .banner .banner-item {
     width: 10000px;
@@ -451,76 +396,6 @@ export default {
     padding-top: 10px;
     margin-left: 20px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*.footer-text .text {
-    line-height: 24px;
-}*/
 </style>
 
 

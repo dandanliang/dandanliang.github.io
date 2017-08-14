@@ -1,11 +1,13 @@
 <template>
     <div>
+        <load v-if="fadein===1">{{fadeinmsg}}</load>
         <div class="shp-banner">
-    
         </div>
+    
         <!--站位-->
         <div style="height:20px;background-color: #eee;width:100%;">
         </div>
+    
         <!--casrt开始符-->
         <div class="Cart">
             <div class="fl">
@@ -71,16 +73,20 @@
 import bookMore from '@/components/bookmore';
 import leftBg from '@/components/leftbg';
 import shopBanner from '@/components/shopbanner';
+import load from '@/components/loading';
 import axios from 'axios';
 
 export default {
     components: {
         bookMore,
         leftBg,
-        shopBanner
+        shopBanner,
+        load
     },
     data() {
         return {
+            fadein: 0,
+            fadeinmsg: "正在加载数据中……",
             news: [],
             db: [],
             shop: {
@@ -97,10 +103,18 @@ export default {
         }
     },
     created() {
+        this.fadein = 1;
         axios.post("api/market", { uid: "66" }).then((a) => {
             // debugger;
-            this.news = a.data.news;
-            this.db = a.data.db;
+            var self = this;
+            setTimeout(function () {
+                self.fadein = 0;
+                self.news = a.data.news;
+                self.db = a.data.db;
+
+            }, 1000);
+
+
 
 
         }).catch((error) => {
@@ -179,6 +193,12 @@ export default {
 .cart-dels {
     font-size: 16px;
 }
+
+
+
+
+
+
 
 
 

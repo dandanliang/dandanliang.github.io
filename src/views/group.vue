@@ -4,6 +4,7 @@
         <header1>
             <div class="tit">小组</div>
         </header1>
+        <!--loda组件  -->
     
         <!--bg开始-->
         <div class="bg">
@@ -13,6 +14,7 @@
             </div>
             <a class="txt">根据小组推荐</a>
         </div>
+        <load v-if="fadein===1">{{fadeintext}}</load>
         <div class="cat">
             <a class="a" style="color: #fff;bottom: 10px; position: absolute;">有意思</a>
         </div>
@@ -116,6 +118,7 @@ import header1 from '@/components/headerNormal'
 import footer2 from '@/components/footer'
 import tab2 from '@/components/grouptitle'
 import links from '@/components/link'
+import load from '@/components/loading'
 
 import axios from "axios";
 export default {
@@ -123,10 +126,13 @@ export default {
         footer2,
         links,
         header1,
-        tab2
+        tab2,
+        load
     },
     data() {
         return {
+            fadein: 0,
+            fadeintext: '数据在加载中……',
             papers: [],
             items: [],
             numders: [],
@@ -134,10 +140,16 @@ export default {
         }
     },
     created() {
+        this.fadein = 1;
         axios.post("api/group", { uid: "123" }).then((a) => {
-            this.papers = a.data.data;
-            // debugger;
-            this.numders = a.data.group1;
+            var self = this;
+            setTimeout(function () {
+                self.fadein = 0;
+                self.papers = a.data.data;
+                // debugger;
+                self.numders = a.data.group1;
+            }, 1000)
+
         }).catch((e) => {
 
         })
@@ -198,6 +210,16 @@ a.txt {
 .group {
     position: relative;
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -376,6 +398,16 @@ body {
     position: absolute;
     right: 25px;
 }
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,42 +1,41 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import login from '@/views/login'
-import home from '@/views/home'
-import book from '@/views/book'
-import radio from '@/views/radio'
-import group from '@/views/group'
-import setup from '@/views/setup'
-import me from '@/views/me'
-import selected from '@/views/selected'
-import hotspot from '@/components/hotspot'
-import round from '@/components/round'
-import homeframe from '@/components/homeframe'
-import grouptitle from '@/components/grouptitle'
-import nav from '@/components/nav'
-import kind from '@/components/kind'
-import diary from '@/views/diary'
-import movie from '@/views/movie'
-import bookMovie from '@/views/book-movie'
-import readbook from '@/views/book-readbook'
-import tv from '@/views/book-tv'
-import city from '@/views/book-city'
-import music from '@/views/book-music'
-import bookmore from '@/components/bookmore'
-import shop from '@/views/book-shop'
-import leftbg from '@/components/leftbg'
-import shopbanner from '@/components/shopbanner'
-import tlflex from '@/components/tlflex'
-import scrolls from '@/components/scrollbanner'
-import choicelis from '@/components/choicelis'
-import hotlikes from '@/components/hotlikes'
-import molds from '@/components/molds'
-Vue.use(Router)
+import Vue from 'vue';
+import Router from 'vue-router';
+import login from '@/views/login';
+import home from '@/views/home';
+import book from '@/views/book';
+import radio from '@/views/radio';
+import group from '@/views/group';
+import setup from '@/views/setup';
+import me from '@/views/me';
+import selected from '@/views/selected';
+import hotspot from '@/components/hotspot';
+import round from '@/components/round';
+import homeframe from '@/components/homeframe';
+import grouptitle from '@/components/grouptitle';
+import nav from '@/components/nav';
+import kind from '@/components/kind';
+import diary from '@/views/diary';
+import movie from '@/views/movie';
+import bookMovie from '@/views/book-movie';
+import readbook from '@/views/book-readbook';
+import tv from '@/views/book-tv';
+import city from '@/views/book-city';
+import music from '@/views/book-music';
+import bookmore from '@/components/bookmore';
+import shop from '@/views/book-shop';
+import leftbg from '@/components/leftbg';
+import shopbanner from '@/components/shopbanner';
+import tlflex from '@/components/tlflex';
+import scrolls from '@/components/scrollbanner';
+import choicelis from '@/components/choicelis';
+import hotlikes from '@/components/hotlikes';
+import molds from '@/components/molds';
+Vue.use(Router);
 
 export default new Router({
     routes: [{
         path: '/',
-        name: 'login',
-        component: login
+        redirect: '/login'
     }, {
         path: '/login',
         name: 'login',

@@ -3,6 +3,7 @@
         <!--站位-->
         <div class="Station">
         </div>
+        <load v-if="fadein===1">{{fadeinmsg}}</load>
         <book-more>
             <span slot="fl-h1" class="more-span-txt">华语新碟版</span>
             <span slot="more-right">
@@ -158,14 +159,18 @@
 <script>
 import bookMore from '@/components/bookmore';
 import homePanel from '@/components/homePanel';
+import load from '@/components/loading';
 import axios from 'axios';
 export default {
     components: {
         bookMore,
-        homePanel
+        homePanel,
+        load
 
     }, data() {
         return {
+            fadein: 0,
+            fadeinmsg: "数据在加载中……",
             hots: [],
             usa: [],
             hots2: [],
@@ -217,13 +222,19 @@ export default {
         }
     },
     created() {
+        this.fadein = 1;
         axios.post("api/music", { uid: "66" }).then((a) => {
             // debugger;
-            this.hots = a.data.china;
-            this.usa = a.data.usa;
-            this.hots2 = a.data.hots2;
-            this.yinyue = a.data.yinyue;
-            this.lives = a.data.lives;
+            var self = this;
+            setTimeout(function () {
+                self.fadein = 0;
+                self.hots = a.data.china;
+                self.usa = a.data.usa;
+                self.hots2 = a.data.hots2;
+                self.yinyue = a.data.yinyue;
+                self.lives = a.data.lives;
+            }, 1000);
+
 
         }).catch((error) => {
 
@@ -290,12 +301,22 @@ export default {
 
 
 
+
+
+
+
+
 /*=======*/
 
 .slot-txt {
     font-size: 15px;
     color: #999;
 }
+
+
+
+
+
 
 
 

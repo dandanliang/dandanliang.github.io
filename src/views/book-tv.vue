@@ -4,6 +4,7 @@
         <div class="Station">
         </div>
         <!--占位符结束-->
+        <load v-if="fadein===1">{{fadeinmsg}}</load>
         <book-more>
             <span slot="fl-h1" class="more-span-txt"> 今日更新</span>
             <span slot="more-right">
@@ -135,17 +136,21 @@ import homePanel from '@/components/homePanel';
 import bookMore from '@/components/bookmore';
 import hotlikes from '@/components/hotlikes';
 import lianJie from '@/components/molds';
+import load from '@/components/loading';
 import axios from "axios";
 export default {
     components: {
         homePanel,
         bookMore,
         hotlikes,
-        lianJie
+        lianJie,
+        load
 
     },
     data() {
         return {
+            fadein: 0,
+            fadeinmsg: "正在加载数据中……",
             renews: [],
             recents: [],
             ustvs: [],
@@ -187,14 +192,21 @@ export default {
         }
     },
     created() {
+        this.fadein = 1;
         axios.post("api/tv", { uid: "123" }).then((n) => {
-            this.renews = n.data.renews;
-            this.recents = n.data.recents;
-            this.ustvs = n.data.ustvs;
-            this.tgs = n.data.tgs;
-            this.items1 = n.data.items1;
-            this.items2 = n.data.items2;
-            this.panel = n.data.panels;
+            var self = this;
+            setTimeout(function () {
+
+                self.fadein = 0;
+                self.renews = n.data.renews;
+                self.recents = n.data.recents;
+                self.ustvs = n.data.ustvs;
+                self.tgs = n.data.tgs;
+                self.items1 = n.data.items1;
+                self.items2 = n.data.items2;
+                self.panel = n.data.panels;
+            }, 1000);
+
         }).catch((error) => {
 
         })
@@ -296,6 +308,14 @@ export default {
     color: #a7a7a7;
     line-height: 22px;
 }
+
+
+
+
+
+
+
+
 
 
 

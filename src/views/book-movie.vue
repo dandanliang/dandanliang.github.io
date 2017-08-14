@@ -1,8 +1,10 @@
 <template>
     <div>
+        <load v-if="fadein===1">{{fadeinmsg}}</load>
         <!--占位符-->
         <div class="Station">
         </div>
+    
         <!--标题-->
         <book-more>
             <span slot="fl-h1" class="more-span-txt">电影热映</span>
@@ -60,13 +62,7 @@
             </span>
         </book-more>
         <!--使用choicelis组件-->
-        <!--<div class="choicelis-con">
-                                                                                                                                                                                                                                                                                                                        <div class="choicelis">
-                                                                                                                                                                                                                                                                                                                
-                                                                                                                                                                                                                                                                                                                            <choicelis :model="lade" v-for="lade in labes"></choicelis>
-                                                                                                                                                                                                                                                                                                                
-                                                                                                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                                                                                                    </div>-->
+    
         <!--使用choicelis组件-->
     
         <!--banner2部分-->
@@ -161,13 +157,16 @@ import bookMore from '@/components/bookmore';
 import homePanel from '@/components/homePanel';
 // import choicelis from '@/components/choicelis';
 import hotlikes from '@/components/hotlikes';
+import load from '@/components/loading';
 import axios from 'axios';
 export default {
     components: {
         homePanel,
         bookMore,
         // choicelis,
-        hotlikes
+        hotlikes,
+        load
+
     },
     data() {
         return {
@@ -178,24 +177,9 @@ export default {
             tabs: [],
             bags: [],
             todays: [],
-            // Hottj: {
-            //     title: "八月展览演出",
-            //     text: '八月最热门的活动都有在这',
-            // },
-            // labes: [{
-            //     title: "八月展览演出",
-            //     text: '八月最热门的活动都有在这',
-            // }, {
-            //     title: "八月展览演出?",
-            //     text: '八月最热门的活动都有在这',
-            // }, {
-            //     title: "八月展览演??出",
-            //     text: '八月最热门的活动都有在这',
-            // }, {
-            //     title: "八月展览演??出",
-            //     text: '八月最热门的活动都有在这',
-            // }],
             cinecismlikes: [],
+            fadein: 0,
+            fadeinmsg: "数据在加载中……",
             labe: {
                 img: "../../static/8.jpg",
                 title: '永远的托词',
@@ -227,15 +211,21 @@ export default {
         }
     },
     created() {
+        this.fadein = 1;
         axios.post("api/bookmovie", { uid: "666" }).then((a) => {
             // debugger;
-            this.tabmovies = a.data.data;
-            this.tabzhangs = a.data.data1;
-            this.bags = a.data.bag;
-            this.todays = a.data.todays;
-            this.items1 = a.data.youlike01;
-            this.items2 = a.data.youlike02;
-            this.cinecismlikes = a.data.pingying;
+            var self = this;
+            setTimeout(function () {
+                self.fadein = 0;
+                self.tabmovies = a.data.data;
+                self.tabzhangs = a.data.data1;
+                self.bags = a.data.bag;
+                self.todays = a.data.todays;
+                self.items1 = a.data.youlike01;
+                self.items2 = a.data.youlike02;
+                self.cinecismlikes = a.data.pingying;
+            }, 1000);
+
 
         }).catch((error) => {
 
@@ -286,6 +276,19 @@ export default {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*影评样式*/
 
 .cinecism {
@@ -297,6 +300,19 @@ export default {
 .strong-block {
     display: block;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

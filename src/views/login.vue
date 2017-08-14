@@ -1,5 +1,6 @@
 <template>
   <div class="con">
+    <load v-if="fadein==1">{{fadeinmsg}}</load>
     <header1>
       <span>豆 瓣 账 户</span>
     </header1>
@@ -22,34 +23,48 @@
 
 <script>
 import header1 from '@/components/headerNormal'
+import load from '@/components/loading'
 import axios from "axios";
+
 export default {
-  name: 'hello',
+  // name: 'hello',
   components: {
-    header1
+    header1,
+    load
   },
   data() {
     return {
       msg: 'Welcome to Your Vue.js App',
       phone: '13100000000',
-      pwd: "123"
+      pwd: "123",
+      fadein: 0,
+      fadeinmsg: "正在登录……"
     }
   }, methods: {
     btnSend: function (event) {
+      // debugger;
       if (this.phone === '') {
-        alert('用户名不能为空！');
+        // alert('用户名不能为空！');
         return;
       }
       if (this.pwd === '') {
-        alert('密码不能为空！');
+        // alert('密码不能为空！');
         return;
       }
+      this.fadein = 1;
+      this.fadeinmsg = "正在登录……";
       axios.post('api/login', { name: this.phone, pwd: this.pwd }).then((res) => {
         if (res.data.state === 1) {
-          alert(res.data.msg);
-          this.$router.push({ path: "/home" });
+          // alert(res.data.msg);
+          var self = this;
+          self.fadeinmsg = "你已登录成功……";
+          setTimeout(function () {
+
+            self.$router.push({ path: "/home" });
+          }, 1000)
+
         } else {
-          alert(res.data.msg);
+          // alert(res.data.msg);
         }
       }).catch((error) => {
 

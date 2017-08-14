@@ -47,7 +47,6 @@
         <!--站位-->
         <div style="height:20px;background-color: #f0f1ec;width:100%;">
         </div>
-    
         <nav style=" border-bottom: 1px solid #f0f1ec;">
             <ul class="nav">
                 <li class="nav-item" v-for="item in items">
@@ -286,6 +285,7 @@ export default {
     line-height: 20px;
     color: #969696;
 }
+
 
 
 

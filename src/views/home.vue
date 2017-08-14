@@ -5,6 +5,7 @@
         <header1 class="home-header">
             <input type="search" name="search" class="search" value="" placeholder="影视 图书 唱片 小组 舞台剧等">
         </header1>
+        <load v-if="fadein==1">{{fadeinmsg}}</load>
         <router-link to="/diary">
             <home-panel :model="jrrd">
                 <span slot="top">今日热点</span>
@@ -15,6 +16,7 @@
                 <span slot="bottom-right" class="bgz">×</span>
             </home-panel>
         </router-link>
+    
         <div style="clear: both;"></div>
         <!--站位-->
         <div class="Station">
@@ -69,6 +71,7 @@ import header1 from '@/components/headerNormal'
 import homeframe from '@/components/homeframe';
 import kind from '@/components/kind';
 import homePanel from '@/components/homePanel';
+import load from '@/components/loading'
 
 import axios from "axios";
 export default {
@@ -78,10 +81,13 @@ export default {
         header1,
         kind,
         homePanel,
+        load
 
     },
     data() {
         return {
+            fadein: 0,
+            fadeinmsg: '数据在加载中……',
             conent: [],
             jrrd: {
                 title: "先给自己定一个小目标，挣它一个亿",
@@ -93,8 +99,15 @@ export default {
     },
     created() {
         // 异步加载首页数据
+        this.fadein = 1;
         axios.post('api/home', { uid: '123' }).then((a) => {
-            this.conent = a.data.conent;
+            var self = this;
+            setTimeout(function () {
+                self.fadein = 0;
+                self.conent = a.data.conent;
+            }, 1000);
+
+
         }).catch((error) => {
             // debugger;
         })

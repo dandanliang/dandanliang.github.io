@@ -1,10 +1,12 @@
 <template>
     <div class="body">
+        <load v-if="fadein===1">{{fadeinmsg}}</load>
         <!--header头部-->
         <header1 style="margin-buttom:70px;">
             <span class="tit">推荐广播</span>
-    
         </header1>
+        <!--组件  -->
+    
         <!--con部分-->
         <div class="con" v-for="paper in papers">
             <div class="con-l">
@@ -40,22 +42,31 @@
 import Footer2 from '@/components/footer';
 import links from '@/components/link';
 import header1 from '@/components/headerNormal'
+import load from '@/components/loading'
 import axios from "axios";
 export default {
      components:{
         Footer2,
         links,
-        header1
+        header1,
+        load
     },
     data(){
         return {
+            fadein:0,
+            fadeinmsg: "数据在加载中……",
             papers:[]
         }
     },  
     created(){
+        this.fadein=1;
         axios.post('api/radio',{uid:'12'}).then((a)=>{
+            var self=this;
+           setTimeout(function() {
+               self.fadein=0;
+                self.papers=a.data;
+           }, 1000);
            
-            this.papers=a.data;
         }).catch((error)=>{
             // debugger;
         })

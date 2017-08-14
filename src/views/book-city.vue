@@ -1,8 +1,9 @@
 <template>
     <div>
         <!--站位-->
-        <div style="height:20px;background-color: #eee;width:100%;">
-        </div>
+        <!-- <div style="height:20px;background-color: #eee;width:100%;">
+            </div> -->
+        <load v-if="fadein===1">{{fadeinmsg}}</load>
         <!--tlflex组件-->
         <tl-flex>
             <div slot="fl">
@@ -164,6 +165,7 @@ import bookMore from '@/components/bookmore';
 import tlFlex from '@/components/tlflex';
 import homePanel from '@/components/homePanel';
 import scrolls from '@/components/scrollbanner';
+import load from '@/components/loading';
 import axios from 'axios';
 
 export default {
@@ -171,10 +173,13 @@ export default {
         bookMore,
         tlFlex,
         scrolls,
+        load
 
     },
     data() {
         return {
+            fadein: 0,
+            fadeinmsg: "数据在加载中……",
             hots: [],
             yy: [],
             exhibits: [],
@@ -201,14 +206,20 @@ export default {
         }
     },
     created() {
+        this.fadein = 1;
         axios.post("api/city", { uid: "66" }).then((a) => {
+            var self = this;
+            setTimeout(function () {
+                self.fadein = 0;
+                self.hots = a.data.hots;
+                self.yy = a.data.mp3;
+                self.options = a.data.yuanjiao;
+                self.exhibits = a.data.shows;
+                self.tours = a.data.tours;
+                self.motions = a.data.motions;
+            }, 1000);
             // debugger;
-            this.hots = a.data.hots;
-            this.yy = a.data.mp3;
-            this.options = a.data.yuanjiao;
-            this.exhibits = a.data.shows;
-            this.tours = a.data.tours;
-            this.motions = a.data.motions;
+
 
 
         }).catch((error) => {
@@ -256,6 +267,15 @@ export default {
 .item strong {
     display: block;
 }
+
+
+
+
+
+
+
+
+
 
 
 
