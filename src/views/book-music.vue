@@ -72,7 +72,7 @@
                         <i>{{hot2.star}}</i>
                     </span>
     
-                    <span class="looke">{{hot2.text}}人想看</span>
+                    <p class="looke">{{hot2.text}}人想看</p>
                 </div>
             </div>
         </div>
@@ -306,12 +306,16 @@ export default {
 
 
 
+
+
 /*=======*/
 
 .slot-txt {
     font-size: 15px;
     color: #999;
 }
+
+
 
 
 

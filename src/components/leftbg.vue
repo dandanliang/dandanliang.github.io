@@ -35,7 +35,7 @@ export default {
 </script>
 <style scoped>
 .h-panel {
-    border-top: 1px solid #e7e7e7;
+    /* border-top: 1px solid #e7e7e7; */
     margin-bottom: 20px;
     padding: 10px;
     display: inline-block;

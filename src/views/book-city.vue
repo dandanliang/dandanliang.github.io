@@ -2,7 +2,7 @@
     <div>
         <!--站位-->
         <!-- <div style="height:20px;background-color: #eee;width:100%;">
-            </div> -->
+                                                        </div> -->
         <load v-if="fadein===1">{{fadeinmsg}}</load>
         <!--tlflex组件-->
         <tl-flex>
@@ -11,7 +11,7 @@
                 <a>上海</a>
                 <i class="solt-i">&gt;</i>
             </div>
-            <div slot="fr" class="">
+            <div slot="fr">
                 <span>类型 时间 地点</span>
                 <i class="solt-i">&gt;</i>
             </div>
@@ -237,18 +237,20 @@ export default {
 }
 
 .boxs {
-    width: 760px;
+    width: 720px;
     overflow: hidden;
 }
 
 .boxs div {
     float: left;
-    width: 180px;
+    width: 172px;
     height: 180px;
-    margin-right: 10px;
+    margin-right: 5px;
     border-radius: 5px;
     text-align: center;
-    background-color: blue;
+    /* box-shadow: 3px 3px 3px; */
+    background: #ccc;
+    /* background-color: red; */
 }
 
 .boxs div h3 {
@@ -267,6 +269,17 @@ export default {
 .item strong {
     display: block;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

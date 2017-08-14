@@ -5,7 +5,7 @@
         </div>
     
         <!--站位-->
-        <div style="height:20px;background-color: #eee;width:100%;">
+        <div class="Station">
         </div>
     
         <!--casrt开始符-->
@@ -21,7 +21,7 @@
         </div>
         <!--cart结束符-->
         <!--站位-->
-        <div style="height:20px;background-color: #eee;width:100%;">
+        <div class="Station">
         </div>
         <!--使用book-more组件-->
         <book-more>
@@ -42,7 +42,7 @@
     
         </left-bg>
         <!--站位-->
-        <div style="height:20px;background-color: #eee;width:100%;">
+        <div class="Station">
         </div>
         <!--使用book-more组件-->
         <book-more>
@@ -193,6 +193,9 @@ export default {
 .cart-dels {
     font-size: 16px;
 }
+
+
+
 
 
 

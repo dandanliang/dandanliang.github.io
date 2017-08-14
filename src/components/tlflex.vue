@@ -19,6 +19,7 @@ export default {
 
 <style scoped>
 .flexs {
+    border-top: 1px solid #e5e5e5;
     display: flex;
     padding: 10px;
 }
@@ -26,7 +27,6 @@ export default {
 .flexs .flexs-fl,
 .flexs .flexs-fr {
     flex: 1;
-    /*background-color: aquamarine;*/
     text-align: center;
     line-height: 50px;
 }
@@ -35,10 +35,10 @@ export default {
 
 .flexs .lines {
     width: 1px;
-    height: 50px;
+    height: 20px;
     background-color: #DDD;
     padding: 0;
-    margin-top: 2px;
+    margin-top: 16px;
 }
 </style>
 

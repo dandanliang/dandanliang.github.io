@@ -9,7 +9,7 @@
         <!--bg开始-->
         <div class="bg">
             <div class="bg-auto" v-for="renshu in numders">
-                <h3>{{renshu.numders}}个有趣小组</h3>
+                <h3>{{renshu.numders}}888888个有趣小组</h3>
                 <p>立即选择加入吧</p>
             </div>
             <a class="txt">根据小组推荐</a>
@@ -57,21 +57,21 @@
         <!--tab结束-->
         <!--content开始-->
     
-        <div class="content" v-for="paper in papers">
+        <div class="content" v-for="bk in books">
             <div class="con-l">
                 <div class="con-1-img">
-                    <img :src="paper.img">
+                    <img :src="bk.img">
                 </div>
             </div>
             <div class="con-r">
                 <div class="con-r-tab">
                     <div class="con-r-tab-1">
     
-                        <h3>{{paper.title}}</h3>
-                        <p class="txt">{{paper.text}}</p>
+                        <h3>{{bk.title}}</h3>
+                        <p class="txt">{{bk.text}}</p>
                     </div>
                     <div class="con-r-tab-r">
-                        <a class="body ">{{paper.gzcount}}人</a>
+                        <a class="body ">{{bk.gzcount}}人</a>
                         <a class="icon">
     
                         </a>
@@ -87,30 +87,31 @@
         <!--tab结束-->
         <!--content开始-->
     
-        <div class="content" v-for="item in items">
+        <div class="content" v-for="yinyue in music">
             <div class="con-l">
-                <img :src="item.img">
+                <img :src="yinyue.img">
             </div>
             <div class="con-r">
                 <div class="con-r-tab">
                     <div class="con-r-tab-1">
     
-                        <h3>{{item.tit}}</h3>
-                        <p class="txt">{{item.txt}}</p>
+                        <h3>{{yinyue.title}}</h3>
+                        <p class="txt">{{yinyue.text}}</p>
                     </div>
                     <div class="con-r-tab-r">
-                        <a class="body ">{{item.gzcounts}}人</a>
+                        <a class="body ">{{yinyue.gzcount}}人</a>
                         <a class="icon">
                         </a>
                     </div>
                 </div>
             </div>
         </div>
+    
         <!--content结束-->
         <links></links>
         <!--使用footer组件-->
         <footer2></footer2>
-        <div style="margin-top:50px;"></div>
+        <div style="margin-top:90px;"></div>
     </div>
 </template>
 <script>
@@ -136,6 +137,9 @@ export default {
             papers: [],
             items: [],
             numders: [],
+            books: [],
+            music: []
+
 
         }
     },
@@ -148,6 +152,8 @@ export default {
                 self.papers = a.data.data;
                 // debugger;
                 self.numders = a.data.group1;
+                self.books = a.data.books;
+                self.music = a.data.music;
             }, 1000)
 
         }).catch((e) => {
@@ -214,90 +220,6 @@ a.txt {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*.header .link {
-    font-size: 20px;
-    font-family: cursive;
-    color: #fff;
-    float: left;
-    padding: 8px;
-    line-height: 45px;
-    position: relative;
-}*/
 
 .tit {
 
@@ -388,7 +310,24 @@ body {
 }
 
 
-.icon {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .icon {
     display: -webkit-inline-box;
     width: 20px;
     height: 20px;
@@ -397,221 +336,7 @@ body {
     border-radius: 50%;
     position: absolute;
     right: 25px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+} */
 
 
 /*.About:after {

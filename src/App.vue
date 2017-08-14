@@ -20,6 +20,9 @@ i {
 }
 
 
+
+
+
 /*-----------占位符------*/
 
 a {
@@ -28,7 +31,7 @@ a {
 }
 
 .Station {
-  height: 20px;
+  height: 8px;
   background-color: #eee;
   width: 100%;
   margin-top: 10px;

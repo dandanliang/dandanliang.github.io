@@ -63,7 +63,6 @@ export default {
     /*border: 1px solid red;*/
 }
 
-
 .qh-r a {
     width: 130px;
 }

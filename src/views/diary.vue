@@ -1,6 +1,7 @@
 <template>
     <div>
         <!--headers部分  -->
+        <load v-if="fadein===1">{{fadeinmsg}}</load>
         <div class="w headers">
             <div class="fl ">
                 <router-link to="/home" class="lt">&lt;</router-link>
@@ -82,14 +83,18 @@
 </template>
 <script>
 import bookMore from '@/components/bookmore';
+import load from '@/components/loading';
 import axios from 'axios';
 export default {
     components: {
         bookMore,
+        load
     },
     data() {
 
         return {
+            fadein: 0,
+            fadeinmsg: '数据在加载中……',
             biaoti: [],
             names: [],
             adds: [{
@@ -114,10 +119,16 @@ export default {
         }
     },
     created() {
+        this.fadein = 1;
         axios.post("api/diary", { uid: "2016" }).then((a) => {
             // debugger;
-            this.nrong = a.data.texts;
-            this.biaoti = a.data.data;
+            var self = this;
+            setTimeout(function () {
+                self.fadein = 0;
+                self.nrong = a.data.texts;
+                self.biaoti = a.data.data;
+            }, 500);
+
 
 
         }).catch((error) => {
@@ -174,6 +185,13 @@ export default {
 
 
 
+
+
+
+
+
+
+
 /*title部分样式  */
 
 .w {
@@ -192,6 +210,13 @@ export default {
 .title h1 {
     width: 100%;
 }
+
+
+
+
+
+
+
 
 
 
@@ -252,6 +277,13 @@ export default {
 .riji-more-china .shuxian {
     font: 700 24px/30px "微软雅黑";
 }
+
+
+
+
+
+
+
 
 
 
