@@ -5,7 +5,7 @@
             <ul class="v-ul-banner" tag="ul" name="list">
                 <li v-for="(list,index) in slideList" :key="index" v-show="index===currentIndex" @mouseenter="stop" @mouseleave="go" class="ul-li">
                     <a :href="list.clickUrl">
-                        <img :src="list.img" :alt="list.desc" width=' 376;' height="200;">
+                        <img :src="list.img" :alt="list.desc" width='414;' height="200;">
                     </a>
                 </li>
             </ul>
@@ -192,6 +192,10 @@ export default {
                 self.db = a.data.db;
                 self.lis = a.data.banners;
             }, 1000);
+
+
+
+
         }).catch((error) => {
 
         })
@@ -202,16 +206,13 @@ export default {
 
 <style scoped>
 .shp-banner {
-    overflow: hidden;
-    /* position: relative; */
     height: 200px;
-    background-color: aqua;
-    /* overflow-x: scroll;
-    overflow-y: hidden; */
+    position: relative;
 }
 
 .v-ul-banner {
-    position: relative;
+
+    /* overflow: hidden; */
     width: 1504px;
 }
 
@@ -221,61 +222,12 @@ export default {
 
 .shp-banner .nav {
     position: absolute;
-    /* width: 100%; */
+    width: 100%;
     z-index: 21;
     bottom: 8px;
+    right: 0;
     text-align: center;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -319,8 +271,8 @@ export default {
     opacity: .6;
 }
 
-.V_active {
-    background-color: #333;
+.v_tiems .V_active {
+    background-color: red;
 }
 
 .Cart {
@@ -385,6 +337,11 @@ export default {
 .cart-dels {
     font-size: 16px;
 }
+
+
+
+
+
 
 
 

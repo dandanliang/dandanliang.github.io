@@ -32,6 +32,7 @@ import choicelis from '@/components/choicelis';
 import hotlikes from '@/components/hotlikes';
 import molds from '@/components/molds';
 import sw from '@/views/sw';
+import xiaoz from '@/views/xiaoz';
 // 
 import mintUI from 'mint-ui';
 // 引入mint-uicss樣式
@@ -167,5 +168,9 @@ export default new Router({
         path: "/sw",
         name: "sw",
         component: sw
+    }, {
+        path: "/xiaoz",
+        name: "xiaoz",
+        component: xiaoz
     }]
 })

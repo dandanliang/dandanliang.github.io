@@ -51,9 +51,6 @@
             <p class="text">{{bodys.text3}}</p>
     
             <img :src="bodys.img" class="mg2">
-            <p class="text">{{bodys.text}}</p>
-            <p class="text">{{bodys.text}}</p>
-            <p class="text">{{bodys.text}}</p>
     
         </div>
         <!--book-more组件-->
@@ -67,15 +64,12 @@
         </book-more>
         <div class="w bodys" v-for="bodys in nrong">
             <p class="text">{{bodys.text}}</p>
-            <p class="text">{{bodys.text2}}</p>
-            <p class="text">{{bodys.text4}}</p>
             <div class="mg2">
                 <img src="../../static/8.jpg">
                 <p class="tw5">{{bodys.text5}}</p>
             </div>
-            <p class="text">{{bodys.text2}}</p>
+            <!-- <p class="text">{{bodys.text2}}</p> -->
             <p class="text">{{bodys.text4}}</p>
-            <p class="text">{{bodys.text}}</p>
     
         </div>
     
@@ -192,6 +186,9 @@ export default {
 
 
 
+
+
+
 /*title部分样式  */
 
 .w {
@@ -210,6 +207,9 @@ export default {
 .title h1 {
     width: 100%;
 }
+
+
+
 
 
 
@@ -277,6 +277,9 @@ export default {
 .riji-more-china .shuxian {
     font: 700 24px/30px "微软雅黑";
 }
+
+
+
 
 
 

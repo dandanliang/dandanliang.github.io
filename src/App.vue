@@ -20,7 +20,13 @@ i {
 }
 
 
-
+.clearfix::after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
 
 
 /*-----------占位符------*/
@@ -35,6 +41,10 @@ a {
   background-color: #eee;
   width: 100%;
   margin-top: 10px;
+}
+
+.w {
+  padding: 0 16px;
 }
 
 #app {

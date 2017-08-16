@@ -17,7 +17,7 @@ export default {
 </script>
 <style scoped>
 .title {
-    height: 18px;
+    /* height: 18px; */
     line-height: 18px;
     padding: 16px;
     display: flex;
