@@ -1,4 +1,5 @@
 import Vue from 'vue';
+
 import Router from 'vue-router';
 import login from '@/views/login';
 import home from '@/views/home';
@@ -30,8 +31,15 @@ import scrolls from '@/components/scrollbanner';
 import choicelis from '@/components/choicelis';
 import hotlikes from '@/components/hotlikes';
 import molds from '@/components/molds';
+import sw from '@/views/sw';
+// 
+import mintUI from 'mint-ui';
+// 引入mint-uicss樣式
+import "mint-ui/lib/style.min.css";
+// import "src/assets/css/mui.min.css";
+// import "src/assets/css/icons-extra.css";
 Vue.use(Router);
-
+// Vue.use(mintUI);
 export default new Router({
     routes: [{
         path: '/',
@@ -155,5 +163,9 @@ export default new Router({
         path: "/molds",
         name: "molds",
         component: molds
+    }, {
+        path: "/sw",
+        name: "sw",
+        component: sw
     }]
 })

@@ -1,7 +1,19 @@
 <template>
     <div>
         <load v-if="fadein===1">{{fadeinmsg}}</load>
-        <div class="shp-banner">
+        <div class="shp-banner" id="shp-banner">
+            <ul class="v-ul-banner" tag="ul" name="list">
+                <li v-for="(list,index) in slideList" :key="index" v-show="index===currentIndex" @mouseenter="stop" @mouseleave="go" class="ul-li">
+                    <a :href="list.clickUrl">
+                        <img :src="list.img" :alt="list.desc" width=' 376;' height="200;">
+                    </a>
+                </li>
+            </ul>
+            <div class="nav">
+                <div class="v_tiems">
+                    <a v-for="(item,index) in slideList.length" target="_blank" :class="{'V_active':index===currentIndex}" @mouseover="change(index)"></a>
+                </div>
+            </div>
         </div>
     
         <!--站位-->
@@ -89,6 +101,8 @@ export default {
             fadeinmsg: "正在加载数据中……",
             news: [],
             db: [],
+            // list: [],
+
             shop: {
                 title: "豆瓣帆布包+早餐系列",
                 body: "简约版型+多层版型+食欲满满，早餐图案=你不可或缺的搭配好物",
@@ -98,20 +112,85 @@ export default {
                 title: "",
                 txt: "",
                 imgs: ""
-            }]
-
+            }],
+            slideList: [
+                {
+                    "clickUrl": "#",
+                    "desc": "1",
+                    "img": "http://img001.mllres.com/images/201708/1502405276363640915.jpg",
+                },
+                {
+                    "clickUrl": "#",
+                    "desc": "2",
+                    "img": "http://img004.mllres.com/images/201607/1467327423773766008.jpg",
+                },
+                {
+                    "clickUrl": "#",
+                    "desc": "3",
+                    "img": "http://image.meilele.com/images/201609/1474155526796089067.jpg"
+                }
+            ],
+            currentIndex: 0,
+            timer: "",
+        }
+    }, methods: {
+        go(currentIndex) {
+            this.timer = setInterval(() => {
+                this.autoPlay()
+            }, 4000)
+        },
+        stop(currentIndex) {
+            clearInterval(this.timer)
+            this.timer = null
+        },
+        change(index) {
+            this.currentIndex = index
+        },
+        autoPlay(currentIndex) {
+            this.currentIndex++
+            if (this.currentIndex > this.slideList.length - 1) {
+                this.currentIndex = 0
+            }
         }
     },
+
     created() {
+
+        // debugger;
+
+        this.$nextTick(() => {
+            this.timer = setInterval(() => {
+                this.autoPlay();
+            }, 3000)
+        })
+
+        // go() {
+        //     this.timer = setInterval(() => {
+        //         this.autoPlay();
+        //     }, 3000)
+        // },
+        // stop() {
+        //     clearInterval(this.timer);
+        //     this.timer = null;
+        // },
+        // change(index) {
+        //     this.currentIndex = index;
+        // },
+        // autoPlay() {
+        //     this.currentIndex++;
+        //     if (this.currentIndex > this.slideList.length - 1) {
+        //         this.currentIndex = 0;
+        //     }
+
         this.fadein = 1;
         axios.post("api/market", { uid: "66" }).then((a) => {
-            // debugger;
+
             var self = this;
             setTimeout(function () {
                 self.fadein = 0;
                 self.news = a.data.news;
                 self.db = a.data.db;
-
+                self.lis = a.data.banners;
             }, 1000);
 
 
@@ -127,8 +206,115 @@ export default {
 
 <style scoped>
 .shp-banner {
+    /* position: relative; */
     height: 200px;
-    background-color: aqua;
+    /* background-color: aqua; */
+    /* overflow-x: scroll;
+    overflow-y: hidden; */
+}
+
+.v-ul-banner {
+    position: relative;
+    /* overflow: hidden; */
+    width: 1504px;
+}
+
+.v-ul-banner li {
+    position: absolute;
+}
+
+.shp-banner .nav {
+    position: absolute;
+    /* width: 100%; */
+    z-index: 21;
+    bottom: 8px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .ul-li {
+    float: left;
+    width: 376px;
+    height: 200px;
+} */
+
+.v_tiems {
+    margin: 0 auto;
+    width: 60px;
+}
+
+
+
+.v_tiems a {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    opacity: .8;
+    background: #fff;
+    display: inline-block;
+    margin: 0 4px;
+    opacity: .6;
+}
+
+.V_active {
+    background-color: #333;
 }
 
 .Cart {
@@ -193,6 +379,164 @@ export default {
 .cart-dels {
     font-size: 16px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

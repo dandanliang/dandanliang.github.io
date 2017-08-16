@@ -40,7 +40,8 @@ export default {
       fadein: 0,
       fadeinmsg: "正在登录……"
     }
-  }, methods: {
+  },
+  methods: {
     btnSend: function (event) {
       // debugger;
       if (this.phone === '') {
@@ -109,6 +110,7 @@ span {
   border: 1px solid #f4f4f4;
   margin-bottom: 20px;
   text-indent: 1em;
+  outline-style: none;
 }
 
 .footer {

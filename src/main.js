@@ -2,8 +2,10 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import router from './router'
+import router from './router';
 import rap_proxy from "rap-global-proxy";
+// import mintUI from 'mint-ui'
+// Vue.use(mintUI);
 
 
 Vue.config.productionTip = false

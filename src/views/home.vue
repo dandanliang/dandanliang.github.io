@@ -3,7 +3,12 @@
     <div class="home">
         <!--header部分-->
         <header1 class="home-header">
-            <input type="search" name="search" class="search" value="" placeholder="影视 图书 唱片 小组 舞台剧等">
+    
+            <div class="div-search">
+                <input type="search" name="search" class="search" value="" placeholder="影视 图书 唱片 小组 舞台剧等">
+                <img src="static/search.png">
+            </div>
+    
         </header1>
         <load v-if="fadein==1">{{fadeinmsg}}</load>
         <router-link to="/diary">
@@ -24,7 +29,7 @@
         <!--kind组件.豆瓣时间-->
         <kind>
             <!-- <img :src="tab.img">
-                            <div>{{tab.text}}</div> -->
+                                                                <div>{{tab.text}}</div> -->
         </kind>
         <!--站位-->
         <div class="Station">
@@ -150,9 +155,17 @@ export default {
     float: left;
 }
 
-.search {
-    background: #fff;
+
+/* .div-search {
+    width: 80%;
     height: 25px;
+    background: #fff;
+    line-height: 25px;
+} */
+
+.search {
+
+
     line-height: 25px;
     width: 80%;
     font-size: 14px;
@@ -182,7 +195,6 @@ export default {
     font-size: 18px;
     font-family: 700;
     line-height: 2.3;
-    /*text-indent: 0.5em;*/
     color: black;
     width: 64%;
     float: left;
@@ -197,7 +209,6 @@ export default {
 .img {
     float: right;
     margin-top: 10px;
-    /*margin-right: 30px;*/
 }
 
 .imgs {

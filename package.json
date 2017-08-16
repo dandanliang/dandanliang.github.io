@@ -14,6 +14,7 @@
     "bootstrap-iconpicker": "^1.8.2",
     "concat-map": "^0.0.1",
     "inherits": "^2.0.3",
+    "mint-ui": "^1.0.2",
     "path-is-absolute": "^1.0.1",
     "vue": "^2.3.3",
     "vue-router": "^2.3.1"
