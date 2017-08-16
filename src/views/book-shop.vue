@@ -134,19 +134,19 @@ export default {
             timer: "",
         }
     }, methods: {
-        go(currentIndex) {
+        go() {
             this.timer = setInterval(() => {
                 this.autoPlay()
             }, 4000)
         },
-        stop(currentIndex) {
+        stop() {
             clearInterval(this.timer)
             this.timer = null
         },
         change(index) {
             this.currentIndex = index
         },
-        autoPlay(currentIndex) {
+        autoPlay() {
             this.currentIndex++
             if (this.currentIndex > this.slideList.length - 1) {
                 this.currentIndex = 0
@@ -192,10 +192,6 @@ export default {
                 self.db = a.data.db;
                 self.lis = a.data.banners;
             }, 1000);
-
-
-
-
         }).catch((error) => {
 
         })
@@ -206,16 +202,16 @@ export default {
 
 <style scoped>
 .shp-banner {
+    overflow: hidden;
     /* position: relative; */
     height: 200px;
-    /* background-color: aqua; */
+    background-color: aqua;
     /* overflow-x: scroll;
     overflow-y: hidden; */
 }
 
 .v-ul-banner {
     position: relative;
-    /* overflow: hidden; */
     width: 1504px;
 }
 
@@ -230,6 +226,16 @@ export default {
     bottom: 8px;
     text-align: center;
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -379,6 +385,16 @@ export default {
 .cart-dels {
     font-size: 16px;
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
